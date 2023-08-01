@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/dist/output.css" rel="stylesheet">
+    <title>Soliu Adeosun</title>
+    <script src="src/main.js"></script>
+    <style>
+        @media (max-width: 1600px) {
+          .desktop\:bg-desktop-image {
+            background-image: url('src/mybg2.jpg');
+          }
+        }
+        @media (min-width:769px) and (max-width: 1600px){
+            #colapsed-menu{
+            display: none !important;
+          }
+        }
+
+        @media (max-width: 768px) {
+          .mobile\:bg-mobile-image {
+            background: #74330B;
+          }
+        }
+      </style>
+</head>
+<body class="relative h-full w-full max-w-[1400px] m-auto ">
+
+    <!-- ============================================================HEADING========================================================== -->
+    
+    <header class="fixed w-full  flex items-center justify-center max-w-[1400px] bg-amber-950 z-[999]">
+        <nav id="navbar" class="flex justify-between items-center h-20 w-[90%]">
+            <p class="text-amber-300 text-4xl font-medium"><a href="#hero">SOLIU</a></p>
+            <ion-icon name="menu" id="menu" onclick="drop()" class="2xl:hidden md:flex text-amber-300 text-4xl"></ion-icon>
+    
+            <ul class="flex justify-between items-center w-1/2 h-full lg:w-[60%] md:hidden">
+                <li><a class="text-amber-300 text-xl hover:border-b-8 border-amber-300" href="#about">About</a></li>
+                <li><a class="text-amber-300 text-xl hover:border-b-8 border-amber-300" href="#skills">Skills</a></li>
+                <li><a class="text-amber-300 text-xl hover:border-b-8 border-amber-300" href="#projects">Projects</a></li>
+                <li><a class="text-amber-300 text-xl hover:border-b-8 border-amber-300" href="#testimonials">Testimonials</a></li>
+                <li><a class="text-amber-300 text-xl hover:border-b-8 border-amber-300" href="#contact">Contact</a></li>
+                <div class="border-s border-s-amber-300 h-1/2"></div>
+                <li><a class="text-amber-300 text-xl hover:border-b-8 border-amber-300" href="#blog">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- ==========================================================HERO SECTION======================================================== -->
+
+    <section id="hero" class="h-screen pt-[80px] relative bg-cover bg-center mobile:bg-mobile-image desktop:bg-desktop-image md:h-full">
+        <!-- ====================Mobile Drop-down Menu================================== -->
+        <ul id="colapsed-menu" class="z-[999]  fixed bg-amber-950 flex flex-col justify-between items-center w-full h-[300px]" style="display: none;">
+            <a href="#about" class="w-full text-center"><li class="text-amber-300 text-xl w-full">About</li></a>
+            <hr class="w-full border border-amber-300">
+            <a href="#skills" class="w-full text-center"><li class="text-amber-300 text-xl">Skills</li></a>
+            <hr class="w-full border border-amber-300">
+            <a href="#projects" class="w-full text-center"><li class="text-amber-300 text-xl">Projects</li></a>
+            <hr class="w-full border border-amber-300">
+            <a href="#testimonials" class="w-full text-center"><li class="text-amber-300 text-xl">Testimonials</li></a>
+            <hr class="w-full border border-amber-300">
+            <a href="#contact" class="w-full text-center"><li class="text-amber-300 text-xl">Contact</li></a>
+            <hr class="w-full border border-amber-300">
+            <a href="#blog" class="w-full text-center"><li class="text-amber-300 text-xl">Blog</li></a>
+        </ul>
+        <!-- ================================================================================ -->
+        <div class="h-full w-[90%] m-auto flex justify-between items-center md:w-[90%] md:flex-col md:items-start">
+            <div class="intro md:pt-10 w-full">
+                <p class="text-amber-300 text-xl">Hi, my name is</p>
+                <h1 class="text-amber-300 font-bold text-7xl">Soliu Adeosun</h1>
+                <p class="text-amber-300 text-xl my-1">A Frontend Web Developer in Lagos</p>
+                <a href="#contact"><button class="border border-amber-300 w-52 h-20 text-amber-300 active:bg-amber-300 active:text-[#74330B] mt-5 md:w-full">GET IN TOUCH</button></a>
+            </div>
+            
+            <!-- <div class="absolute right-[20px]">
+                <ul class="flex flex-col justify-between h-[400px]">
+                    <a href="https://github.com/sawlew" target="_blank"><ion-icon name="logo-github" class="text-amber-300 text-4xl hover:text-amber-500"></ion-icon></a>
+                    <a href="https://twitter.com/sawlew" target="_blank"><ion-icon name="logo-twitter" class="text-amber-300 text-4xl hover:text-amber-500"></ion-icon></a>
+                    <a href="https://www.linkedin.com/in/sawlew/" target="_blank"><ion-icon name="logo-linkedin" class="text-amber-300 text-4xl hover:text-amber-500"></ion-icon></a>
+                    <a href="mailto: sawlew@gmail.com" target="_blank"><ion-icon name="mail-outline" class="text-amber-300 text-4xl hover:text-amber-500"></ion-icon></a>
+                    <a href="https://api.whatsapp.com/send?phone=2348024182946" target="_blank"><ion-icon name="logo-whatsapp" class="text-amber-300 text-4xl hover:text-amber-500"></ion-icon></a>
+                    <a href="tel:+2348024182946"><ion-icon name="call-outline" class="text-amber-300 text-4xl hover:text-amber-500"></ion-icon></a>
+                </ul>
+            </div> -->
+            <div>
+                <img src="src/mbbg.jpg" alt="" class="2xl:hidden md:block">
+            </div>
+        </div>
+    </section>
+    
+    <!-- ============================================================ABOUT========================================================== -->
+
+    <section id="about" class=" bg-amber-300 pt-[80px] h-fit">
+        <div class="w-[60%] md:w-[90%] sm:w-[95%] xl:w-[80%]  mx-auto pb-8">
+            <h2 class="text-amber-800 font-bold text-2xl my-[2rem] text-center">ABOUT</h2>
+            <div class="border-8 p-4 border-amber-900 flex flex-col">
+                <p class="text-xl lg:text-[1rem] sm:mb-1 mb-4 text-amber-800 font-semibold">My name is Soliu Adeosun, a  Front-end developer with expertise in JavaScript, HTML, Python, Vanilla CSS, Tailwind CSS, Git, and Github.<br>
+                    I am currently interning at TIIDELab, where I'm putting my skills to use and expanding my knowledge.</p>
+                <p class="text-xl lg:text-[1rem] sm:mb-1 mb-4 text-amber-800 font-semibold">I have a track record of successful contributions to projects like a Qr code generator and virtual reality website. Apart from this project, I've engaged in honing my skills through personal, team projects, and open-source projects.</p>
+
+                <p class="text-xl lg:text-[1rem] sm:mb-1 mb-4 text-amber-800 font-semibold">Apart from coding, I enjoy playing puzzle games like Sudoku and Rubiks.
+                <br>If you're in need of a Front-end developer to join your team or assist with a project, I'm just a message away.<br>
+                Feel free to reach out to me.</p>
+                <a href="src/SoliuAdeosunResume.pdf" download><button class="border-4 border-amber-800 h-[80px] text-xl font-bold text-amber-800 hover:bg-amber-800 hover:text-amber-300 active:bg-amber-300 active:text-amber-800 w-full">Download CV</button></a>
+            </div>
+        </div> 
+    </section>
+
+    <!-- ============================================================SKILL========================================================== -->
+
+    <section id="skills" class="h-screen sm:h-full sm:pb-20 bg-[#74330B] pt-[80px]">
+        <div class="w-[60%] lg:w-[80%] md:w-[95%] h-full mx-auto">
+            <h2 class="text-amber-300 font-bold text-2xl my-[2rem] text-center">SKILLS</h2>
+            <div class="flex justify-between sm:flex-col sm:w-[80%] mx-auto">
+                <div id="frontend">
+                    <h2 class="text-amber-300 font-bold text-2xl mb-[2rem] sm:text-center">Frontend development</h2>
+                    <div>
+                        <p class="text-xl mb-2 text-amber-300">HTML</p>
+                        <hr class="border-amber-300 mb-10">
+                        <p class="text-xl mb-2 text-amber-300">CSS</p>
+                        <hr class="border-amber-300 mb-10">
+                        <p class="text-xl mb-2 text-amber-300">Tailwind CSS</p>
+                        <hr class="border-amber-300 mb-10">
+                        <p class="text-xl mb-2 text-amber-300">JavaScript</p>
+                        <hr class="border-amber-300">
+                    </div>
+                </div>
+                <div id="backend" class="sm:mt-10">
+                    <h2 class="text-amber-300 font-bold text-2xl mb-[2rem] sm:text-center">Backend development</h2>
+                    <p class="text-xl mb-2 text-amber-300">Python(Django)</p>
+                    <hr class="border-amber-300">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================PROJECT========================================================== -->
+
+    <section id="projects" class="h-screen sm:h-full sm:pb-10 bg-amber-300 md:h-full">
+        <div id="pcontainer" class="w-[90%] h-full pt-[80px] mx-auto md:w-[90%]">
+            <h2 class="text-amber-800 font-bold text-2xl my-[2rem] text-center">PROJECTS</h2>
+            <div class="max-w-full max-h-full flex gap-2 md:flex-col items-center">
+                <div class="md:mb-4 max-w-[24%] min-h-[350px] md:max-w-[90%] flex flex-col justify-between items-center">
+                    <img src="src/kuda.PNG" alt="">
+                    <p class="text-amber-800 font-bold">Virtual Reality UI</p>
+                    <p class="text-amber-800 font-semibold text-center">This is a responsive virtual reality banking application with adaptable UI components for Kuda Bank</p>
+                    <a href="https://kudabank-taupe.vercel.app/" target="_blank"><button class="border-2 border-amber-800 w-[150px] h-[50px] hover:bg-amber-800 hover:text-amber-300 active:bg-amber-300 active:text-amber-800">View</button></a>
+                </div>
+                <div class="md:mb-4 max-w-[24%] min-h-[350px] flex flex-col justify-between items-center md:max-w-[90%]">
+                    <img src="src/fb.PNG" alt="">
+                    <p class="text-amber-800 font-bold">Facebook clone</p>
+                    <p class="text-amber-800 font-semibold text-center">Beautifuly designed Facebook with highly responsive UI. Made with HTML, CSS and Js.</p>
+                    <a href="https://sawlew.github.io/dummy/" target="_blank"><button class="border-2 border-amber-800 w-[150px] h-[50px] hover:bg-amber-800 hover:text-amber-300 active:bg-amber-300 active:text-amber-800">View</button></a>
+                </div>
+                <div class="md:mb-4 max-w-[24%] min-h-[350px] flex flex-col justify-between items-center md:max-w-[90%]">
+                    <img src="src/travel.PNG" alt="">
+                    <p class="text-amber-800 font-bold">TravelnTour Landing page</p>
+                    <p class="text-amber-800 font-semibold text-center">A Landing page for a travel agency with a rich and adaptable UI.</p>
+                    <a href="https://sawlew.github.io/TravelnTour/" target="_blank"><button class="border-2 border-amber-800 w-[150px] h-[50px] hover:bg-amber-800 hover:text-amber-300 active:bg-amber-300 active:text-amber-800">View</button></a>
+                </div>
+                <div class="md:mb-4 max-w-[24%] min-h-[350px] flex flex-col justify-between items-center md:max-w-[90%]">
+                    <img src="src/bank.PNG" alt="">
+                    <p class="text-amber-800 font-bold">EdgeLedger Bank Website</p>
+                    <p class="text-amber-800 font-semibold text-center">EdgeLedger landing page with modern and responsive UI.</p>
+                    <a href="https://edgeledger-rho.vercel.app/" target="_blank"><button class="border-2 border-amber-800 w-[150px] h-[50px] hover:bg-amber-800 hover:text-amber-300 active:bg-amber-300 active:text-amber-800">View</button></a>
+                </div>
+            </div>
+        </div>
+        
+    </section>
+    
+    <!-- ==========================================================TESTIMONIAL======================================================== -->
+
+    <section id="testimonials" class="h-screen bg-[#74330B] pt-[80px] pb-10">
+        <h2 class="text-amber-300 font-bold text-2xl my-[2rem] text-center">TESTIMONIALS</h2>
+        <div class="w-[70%] xl:w-[90%] min-h-[80%] mx-auto border border-amber-300 flex items-center">
+            <div class="w-[90%] mx-auto">
+                <h3 class="text-amber-300 text-2xl font-bold">
+                    Soliu is my go-to for all things web. He has been a huge asset to my business for 3 years. Soliu is reliable, honest and great at what he does. Highly recommend!
+                </h3>
+                <p class="text-right text-amber-300 pt-10">
+                    <strong>Zubaidah S.</strong><br>
+                    TIIDELab
+                </p>
+            </div>
+            <div class="w-[80%] mx-auto hidden">
+                <h3 class="text-amber-300 text-2xl font-bold">We started looking for a freelance web developer last year and were fortunate to find Soliu. He's been easy to work with since the very beginning: organized, responsive, and helpful. And always on time.</h3>
+                <p class="text-right text-amber-300">
+                    <strong>Dana N.</strong><br>
+                    AUX Architecture
+                </p>
+            </div>
+            <div class="w-[80%] mx-auto hidden">
+                <h3 class="text-amber-300 text-2xl font-bold">
+                    Soliu has been the freelance web developer for our feature film from the pitch stage, through production, to the marketing/distribution stage. Whenever a change has to be made, he always jumps on it. His design is fantastic and user-friendly and he is extremely collaborative. I won't use anyone else moving forward. WORK WITH HIM.
+                </h3>
+                <p class="text-right text-amber-300">
+                    <strong>Kelly B.</strong><br>
+                    Writer/Director
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ============================================================BLOG========================================================== -->
+
+    <section id="blog" class="h-screen sm:h-full sm:pb-10 bg-amber-300">
+        <div class="max-w-[80%] lg:max-w-[90%] h-full pt-[80px] mx-auto">
+            <h2 class="text-amber-800 font-bold text-2xl my-[2rem] text-center">BLOG</h2>
+            <div class="flex justify-between sm:flex-col">
+                <div class="sm:flex sm:flex-col sm:items-center">
+                    <p class="text-amber-800 font-semibold">JULY 30TH, 2023</p>
+                    <h3 class="my-5 text-amber-800 font-bold text-3xl sm:text-center">My First Month Experience at TIIDELab 1.0</h3>
+                    <p class="my-5 text-amber-800 font-semibold sm:text-center">I just wrapped up my first project using Wordpress as a headless CMS with React (well, Gatsby). It was pretty nice going back to using…</p>
+                    <button class="border border-amber-800 w-52 h-20 text-amber-800 active:bg-amber-800 active:text-amber-300">READ MORE</button>
+                </div>
+                <div class="sm:flex sm:flex-col sm:items-center">
+                    <p class="text-amber-800 font-semibold">MAY 14TH, 2020</p>
+                    <h3 class="my-5 text-amber-800 font-bold text-3xl sm:text-center">How To Submit Gravity Forms With Javascript</h3>
+                    <p class="my-5 text-amber-800 font-semibold sm:text-center">I just wrapped up my first project using Wordpress as a headless CMS with React (well, Gatsby). It was pretty nice going back to using…</p>
+                    <button class="border border-amber-800 w-52 h-20 text-amber-800 active:bg-amber-800 active:text-amber-300">READ MORE</button>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+    
+    <!-- ============================================================CONTACT========================================================== -->
+
+    <section id="contact" class="h-screen sm:h-full bg-[#74330B] pt-[80px]">
+        <h3 class="text-amber-300 font-bold text-2xl my-[2rem] text-center">LET'S BUILD A THING</h3>
+        <div class="h-full flex flex-col justify-between bg-[#74330B]">
+            <form action="">
+            <div class="flex items-start justify-evenly sm:flex-col">
+                
+
+                
+                    <table class="border-separate w-1/2 table-fixed border-spacing-2 h-1/2 lg:w-[90%] sm:w-[90%] sm:mx-auto">
+                        <tr>
+                            <td>
+                                <input type="text" name="" id="" placeholder="First Name" class="h-10 w-full bg-[#74330B] border border-amber-300 text-amber-300 px-[1rem] focus:outline-none focus:border-amber-300 placeholder-amber-300">
+                            </td>
+                            <td>
+                                <input type="text" name="" id="" placeholder="Last Name" class="h-10 w-full bg-[#74330B] border border-amber-300 text-amber-300 px-[1rem] focus:outline-none focus:border-amber-300 placeholder-amber-300">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="email" name="" id="" placeholder="E-mail" required class="h-10 w-full bg-[#74330B] border border-amber-300 text-amber-300 px-[1rem] focus:outline-none focus:border-amber-300 placeholder-amber-300">
+                            </td>
+                            <td>
+                                <input type="tel" name="" id="" placeholder="Telephone" required class="h-10 w-full bg-[#74330B] border border-amber-300 text-amber-300 px-[1rem] focus:outline-none focus:border-amber-300 placeholder-amber-300">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <input type="text" placeholder="Subject" class="h-10 w-full bg-[#74330B] border border-amber-300 text-amber-300 px-[1rem] focus:outline-none focus:border-amber-300 placeholder-amber-300">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <textarea placeholder="Message" name="" id="" cols="30" rows="10" class="w-full bg-[#74330B] border border-amber-300 text-amber-300 px-[1rem] focus:outline-none focus:border-amber-300 placeholder-amber-300"></textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-center" colspan="2">
+                                <button class="w-40 h-10 border border-amber-300 text-amber-300 active:bg-amber-300 active:text-[#74330B]">Send it</button>
+                            </td>
+                        </tr>
+                    </table>
+                
+                <div class="mt-2 lg:hidden">
+                    <ul class="flex flex-col justify-between h-[400px]">
+                        <a href="https://github.com/sawlew" target="_blank"><ion-icon name="logo-github" class="text-amber-300 text-4xl hover:text-amber-500"></ion-icon></a>
+                        <a href="https://twitter.com/sawlew" target="_blank"><ion-icon name="logo-twitter" class="text-amber-300 text-4xl hover:text-amber-500"></ion-icon></a>
+                        <a href="https://www.linkedin.com/in/sawlew/" target="_blank"><ion-icon name="logo-linkedin" class="text-amber-300 text-4xl hover:text-amber-500"></ion-icon></a>
+                        <a href="mailto: sawlew@gmail.com" target="_blank"><ion-icon name="mail-outline" class="text-amber-300 text-4xl hover:text-amber-500"></ion-icon></a>
+                        <a href="https://api.whatsapp.com/send?phone=2348024182946" target="_blank"><ion-icon name="logo-whatsapp" class="text-amber-300 text-4xl hover:text-amber-500"></ion-icon></a>
+                        <a href="tel:+2348024182946"><ion-icon name="call-outline" class="text-amber-300 text-4xl hover:text-amber-500"></ion-icon></a>
+                    </ul>
+                </div>
+            </div>
+        </form>
+            <div class="bg-amber-950 h-20 flex items-center justify-center lg:flex-col lg:h-[160px] lg:justify-evenly">
+                <ul class="2xl:hidden lg:flex w-[90%] mx-auto justify-evenly">
+                    <a href="https://github.com/sawlew" target="_blank"><ion-icon name="logo-github" class="text-amber-300 text-3xl"></ion-icon></a>
+                    <a href="https://twitter.com/sawlew" target="_blank"><ion-icon name="logo-twitter" class="text-amber-300 text-3xl"></ion-icon></a>
+                    <a href="https://www.linkedin.com/in/sawlew/" target="_blank"><ion-icon name="logo-linkedin" class="text-amber-300 text-3xl"></ion-icon></a>
+                    <a href="mailto: sawlew@gmail.com" target="_blank"><ion-icon name="mail-outline" class="text-amber-300 text-3xl"></ion-icon></a>
+                    <a href="https://api.whatsapp.com/send?phone=2348024182946" target="_blank"><ion-icon name="logo-whatsapp" class="text-amber-300 text-3xl"></ion-icon></a>
+                    <a href="tel:+2348024182946"><ion-icon name="call-outline" class="text-amber-300 text-3xl"></ion-icon></a>
+                </ul>
+                <p class="text-amber-300">&COPY; Copyright 2023 - Soliu Adeosun</p>
+            </div>
+        </div>
+        
+    </section>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
