@@ -7,14 +7,23 @@
     <title>Soliu Adeosun</title>
     <script src="src/main.js"></script>
     <style>
-        @media (max-width: 1600px) {
+        @media (min-width: 769px) {
           .desktop\:bg-desktop-image {
             background-image: url('src/mybg2.jpg');
           }
         }
-        @media (min-width:769px) and (max-width: 1600px){
+        @media (min-width:769px){
             #colapsed-menu{
             display: none !important;
+          }
+          #mb-image{
+            display: none;
+          }
+          #menu{
+            display: none;
+          }
+          #footer-social{
+            display: none;
           }
         }
 
@@ -25,14 +34,14 @@
         }
       </style>
 </head>
-<body class="relative h-full w-full max-w-[1400px] m-auto ">
+<body class="relative h-full w-full m-auto ">
 
     <!-- ============================================================HEADING========================================================== -->
     
-    <header class="fixed w-full  flex items-center justify-center max-w-[1400px] bg-amber-950 z-[999]">
+    <header class="fixed w-full  flex items-center justify-center bg-amber-950 z-[999]">
         <nav id="navbar" class="flex justify-between items-center h-20 w-[90%]">
             <p class="text-amber-300 text-4xl font-medium"><a href="#hero">SOLIU</a></p>
-            <ion-icon name="menu" id="menu" onclick="drop()" class="2xl:hidden md:flex text-amber-300 text-4xl"></ion-icon>
+            <ion-icon name="menu" id="menu" onclick="drop()" class="md:flex text-amber-300 text-4xl"></ion-icon>
     
             <ul class="flex justify-between items-center w-1/2 h-full lg:w-[60%] md:hidden">
                 <li><a class="text-amber-300 text-xl hover:border-b-8 border-amber-300" href="#about">About</a></li>
@@ -83,7 +92,7 @@
                 </ul>
             </div> -->
             <div>
-                <img src="src/mbbg.jpg" alt="" class="2xl:hidden md:block">
+                <img src="src/mbbg.jpg" alt="" id="mb-image" class="md:block">
             </div>
         </div>
     </section>
@@ -92,7 +101,7 @@
 
     <section id="about" class=" bg-amber-300 pt-[80px] h-fit">
         <div class="w-[60%] md:w-[90%] sm:w-[95%] xl:w-[80%]  mx-auto pb-8">
-            <h2 class="text-amber-800 font-bold text-2xl my-[2rem] text-center">ABOUT</h2>
+            <h2 class="text-amber-800 font-bold text-2xl mb-[2rem] text-center">ABOUT</h2>
             <div class="border-8 p-4 border-amber-900 flex flex-col">
                 <p class="text-xl lg:text-[1rem] sm:mb-1 mb-4 text-amber-800 font-semibold">My name is Soliu Adeosun, a  Front-end developer with expertise in JavaScript, HTML, Python, Vanilla CSS, Tailwind CSS, Git, and Github.<br>
                     I am currently interning at TIIDELab, where I'm putting my skills to use and expanding my knowledge.</p>
@@ -101,7 +110,7 @@
                 <p class="text-xl lg:text-[1rem] sm:mb-1 mb-4 text-amber-800 font-semibold">Apart from coding, I enjoy playing puzzle games like Sudoku and Rubiks.
                 <br>If you're in need of a Front-end developer to join your team or assist with a project, I'm just a message away.<br>
                 Feel free to reach out to me.</p>
-                <a href="src/SoliuAdeosunResume.pdf" download><button class="border-4 border-amber-800 h-[80px] text-xl font-bold text-amber-800 hover:bg-amber-800 hover:text-amber-300 active:bg-amber-300 active:text-amber-800 w-full">Download CV</button></a>
+                <a href="https://drive.google.com/file/d/1cYt8MUl_Fk7WWGkaRjT2bdpg4UZxF357/view?usp=sharing" target="_blank"><button class="border-4 border-amber-800 h-[80px] text-xl font-bold text-amber-800 hover:bg-amber-800 hover:text-amber-300 active:bg-amber-300 active:text-amber-800 w-full">Download CV</button></a>
             </div>
         </div> 
     </section>
@@ -110,7 +119,7 @@
 
     <section id="skills" class="h-screen sm:h-full sm:pb-20 bg-[#74330B] pt-[80px]">
         <div class="w-[60%] lg:w-[80%] md:w-[95%] h-full mx-auto">
-            <h2 class="text-amber-300 font-bold text-2xl my-[2rem] text-center">SKILLS</h2>
+            <h2 class="text-amber-300 font-bold text-2xl mb-[2rem] text-center">SKILLS</h2>
             <div class="flex justify-between sm:flex-col sm:w-[80%] mx-auto">
                 <div id="frontend">
                     <h2 class="text-amber-300 font-bold text-2xl mb-[2rem] sm:text-center">Frontend development</h2>
@@ -136,45 +145,45 @@
 
     <!-- ============================================================PROJECT========================================================== -->
 
-    <section id="projects" class="h-screen sm:h-full sm:pb-10 bg-amber-300 md:h-full">
+    <section id="projects" class="pb-10 bg-amber-300 ">
         <div id="pcontainer" class="w-[90%] h-full pt-[80px] mx-auto md:w-[90%]">
-            <h2 class="text-amber-800 font-bold text-2xl my-[2rem] text-center">PROJECTS</h2>
-            <div class="max-w-full max-h-full flex gap-2 md:flex-col items-center">
-                <div class="md:mb-4 max-w-[24%] min-h-[350px] md:max-w-[90%] flex flex-col justify-between items-center">
+            <h2 class="text-amber-800 font-bold text-2xl mb-[2rem] text-center">PROJECTS</h2>
+            <div class="grid grid-cols-2 gap-8 md:grid-cols-1">
+                <div class="w-[80%] flex flex-col justify-between items-center mx-auto">
                     <img src="src/kuda.PNG" alt="">
                     <p class="text-amber-800 font-bold">Virtual Reality UI</p>
-                    <p class="text-amber-800 font-semibold text-center">This is a responsive virtual reality banking application with adaptable UI components for Kuda Bank</p>
-                    <div class="w-full flex gap-1">
-                        <a href="https://kudabank-taupe.vercel.app/" target="_blank" class="w-1/2"><button class="border-2 border-amber-800 w-[100%] h-[50px] text-amber-800 font-bold hover:bg-amber-800 hover:text-amber-300 active:bg-amber-300 active:text-amber-800">Demo</button></a>
-                        <a href="https://github.com/sawlew/kudabank" target="_blank" class="w-1/2"><button class="border-2 border-amber-800 w-[100%] h-[50px] text-amber-800 font-bold hover:bg-amber-800 hover:text-amber-300 active:bg-amber-300 active:text-amber-800">GitHub</button></a>
+                    <p class="text-amber-800 font-semibold text-center py-4">This is a responsive virtual reality banking application with adaptable UI components for Kuda Bank</p>
+                    <div class="w-full flex gap-1 justify-center">
+                        <a href="https://kudabank-taupe.vercel.app/" target="_blank" class="w-[150px]"><button class="border-2 border-amber-800 w-[100%] h-[50px] text-amber-800 font-bold hover:bg-amber-800 hover:text-amber-300 active:bg-amber-300 active:text-amber-800">Demo</button></a>
+                        <a href="https://github.com/sawlew/kudabank" target="_blank" class="w-[150px]"><button class="border-2 border-amber-800 w-[100%] h-[50px] text-amber-800 font-bold hover:bg-amber-800 hover:text-amber-300 active:bg-amber-300 active:text-amber-800">GitHub</button></a>
                     </div>
-                    
                 </div>
-                <div class="md:mb-4 max-w-[24%] min-h-[350px] flex flex-col justify-between items-center md:max-w-[90%]">
+                <div class="w-[80%] flex flex-col justify-between items-center mx-auto">
                     <img src="src/fb.PNG" alt="">
                     <p class="text-amber-800 font-bold">Facebook clone</p>
-                    <p class="text-amber-800 font-semibold text-center">Beautifuly designed Facebook with highly responsive UI. Made with HTML, CSS and Js.</p>
-                    <div class="w-full flex gap-1">
-                        <a href="https://sawlew.github.io/dummy/" target="_blank" class="w-1/2"><button class="border-2 border-amber-800 w-[100%] h-[50px] text-amber-800 font-bold hover:bg-amber-800 hover:text-amber-300 active:bg-amber-300 active:text-amber-800">Demo</button></a>
-                        <a href="https://github.com/sawlew/dummy" target="_blank" class="w-1/2"><button class="border-2 border-amber-800 w-[100%] h-[50px] text-amber-800 font-bold hover:bg-amber-800 hover:text-amber-300 active:bg-amber-300 active:text-amber-800">GitHub</button></a>
+                    <p class="text-amber-800 font-semibold text-center py-4">Beautifuly designed Facebook with highly responsive UI. Made with HTML, CSS and Js.</p>
+                    <div class="w-full flex gap-1 justify-center">
+                        <a href="https://sawlew.github.io/dummy/" target="_blank" class="w-[150px]"><button class="border-2 border-amber-800 w-[100%] h-[50px] text-amber-800 font-bold hover:bg-amber-800 hover:text-amber-300 active:bg-amber-300 active:text-amber-800">Demo</button></a>
+                        <a href="https://github.com/sawlew/dummy" target="_blank" class="w-[150px]"><button class="border-2 border-amber-800 w-[100%] h-[50px] text-amber-800 font-bold hover:bg-amber-800 hover:text-amber-300 active:bg-amber-300 active:text-amber-800">GitHub</button></a>
                     </div>
                 </div>
-                <div class="md:mb-4 max-w-[24%] min-h-[350px] flex flex-col justify-between items-center md:max-w-[90%]">
+
+                <div class="w-[80%] flex flex-col justify-between items-center mx-auto">
                     <img src="src/travel.PNG" alt="">
                     <p class="text-amber-800 font-bold">TravelnTour Landing page</p>
-                    <p class="text-amber-800 font-semibold text-center">A Landing page for a travel agency with a rich and adaptable UI.</p>
-                    <div class="w-full flex gap-1">
-                        <a href="https://sawlew.github.io/TravelnTour/" target="_blank" class="w-1/2"><button class="border-2 border-amber-800 w-[100%] h-[50px] text-amber-800 font-bold hover:bg-amber-800 hover:text-amber-300 active:bg-amber-300 active:text-amber-800">Demo</button></a>
-                        <a href="https://github.com/sawlew/TravelnTour" target="_blank" class="w-1/2"><button class="border-2 border-amber-800 w-[100%] h-[50px] text-amber-800 font-bold hover:bg-amber-800 hover:text-amber-300 active:bg-amber-300 active:text-amber-800">GitHub</button></a>
+                    <p class="text-amber-800 font-semibold text-center py-4">A Landing page for a travel agency with a rich and adaptable UI.</p>
+                    <div class="w-full flex gap-1 justify-center">
+                        <a href="https://sawlew.github.io/TravelnTour/" target="_blank" class="w-[150px]"><button class="border-2 border-amber-800 w-[100%] h-[50px] text-amber-800 font-bold hover:bg-amber-800 hover:text-amber-300 active:bg-amber-300 active:text-amber-800">Demo</button></a>
+                        <a href="https://github.com/sawlew/TravelnTour" target="_blank" class="w-[150px]"><button class="border-2 border-amber-800 w-[100%] h-[50px] text-amber-800 font-bold hover:bg-amber-800 hover:text-amber-300 active:bg-amber-300 active:text-amber-800">GitHub</button></a>
                     </div>
                 </div>
-                <div class="md:mb-4 max-w-[24%] min-h-[350px] flex flex-col justify-between items-center md:max-w-[90%]">
+                <div class="w-[80%] flex flex-col justify-between items-center mx-auto">
                     <img src="src/bank.PNG" alt="">
                     <p class="text-amber-800 font-bold">EdgeLedger Bank Website</p>
-                    <p class="text-amber-800 font-semibold text-center">EdgeLedger landing page with modern and responsive UI.</p>
-                    <div class="w-full flex gap-1">
-                        <a href="https://edgeledger-rho.vercel.app/" target="_blank" class="w-1/2"><button class="border-2 border-amber-800 w-[100%] h-[50px] text-amber-800 font-bold hover:bg-amber-800 hover:text-amber-300 active:bg-amber-300 active:text-amber-800">Demo</button></a>
-                        <a href="https://github.com/sawlew/edgeledger" target="_blank" class="w-1/2"><button class="border-2 border-amber-800 w-[100%] h-[50px] text-amber-800 font-bold hover:bg-amber-800 hover:text-amber-300 active:bg-amber-300 active:text-amber-800">GitHub</button></a>
+                    <p class="text-amber-800 font-semibold text-center py-4">EdgeLedger landing page with modern and responsive UI.</p>
+                    <div class="w-full flex gap-1 justify-center">
+                        <a href="https://edgeledger-rho.vercel.app/" target="_blank" class="w-[150px]"><button class="border-2 border-amber-800 w-[100%] h-[50px] text-amber-800 font-bold hover:bg-amber-800 hover:text-amber-300 active:bg-amber-300 active:text-amber-800">Demo</button></a>
+                        <a href="https://github.com/sawlew/edgeledger" target="_blank" class="w-[150px]"><button class="border-2 border-amber-800 w-[100%] h-[50px] text-amber-800 font-bold hover:bg-amber-800 hover:text-amber-300 active:bg-amber-300 active:text-amber-800">GitHub</button></a>
                     </div>
                 </div>
             </div>
@@ -185,7 +194,7 @@
     <!-- ==========================================================TESTIMONIAL======================================================== -->
 
     <section id="testimonials" class="h-screen bg-[#74330B] pt-[80px] pb-10">
-        <h2 class="text-amber-300 font-bold text-2xl my-[2rem] text-center">TESTIMONIALS</h2>
+        <h2 class="text-amber-300 font-bold text-2xl mb-[2rem] text-center">TESTIMONIALS</h2>
         <div class="w-[70%] xl:w-[90%] min-h-[80%] mx-auto border border-amber-300 flex items-center">
             <div class="w-[90%] mx-auto">
                 <h3 class="text-amber-300 text-2xl font-bold">
@@ -219,13 +228,13 @@
 
     <section id="blog" class="h-screen sm:h-full sm:pb-10 bg-amber-300">
         <div class="max-w-[80%] lg:max-w-[90%] h-full pt-[80px] mx-auto">
-            <h2 class="text-amber-800 font-bold text-2xl my-[2rem] text-center">BLOG</h2>
+            <h2 class="text-amber-800 font-bold text-2xl mb-[2rem] text-center">BLOG</h2>
             <div class="flex justify-between sm:flex-col gap-8">
                 <div class="sm:flex sm:flex-col sm:items-center">
                     <p class="text-amber-800 font-semibold">JULY 30TH, 2023</p>
                     <h3 class="my-5 text-amber-800 font-bold text-3xl sm:text-center">My First Month Experience at TIIDELab 1.0</h3>
                     <p class="my-5 text-amber-800 font-semibold sm:text-center">I just wrapped up my first project using Wordpress as a headless CMS with React (well, Gatsby). It was pretty nice going back to using…</p>
-                    <button class="border-2 border-amber-800 w-52 h-20 font-bold text-amber-800 active:bg-amber-800 active:text-amber-300">READ MORE</button>
+                    <a href="https://medium.com/@sawlew/my-first-month-experience-at-tiidelab-1-0-9122026d939a" target="_blank"><button class="border-2 border-amber-800 w-52 h-20 font-bold text-amber-800 active:bg-amber-800 active:text-amber-300">READ MORE</button></a>
                 </div>
                 <div class="sm:flex sm:flex-col sm:items-center">
                     <p class="text-amber-800 font-semibold">MAY 14TH, 2023</p>
@@ -240,15 +249,15 @@
     
     <!-- ============================================================CONTACT========================================================== -->
 
-    <section id="contact" class="h-screen sm:h-full bg-[#74330B] pt-[80px]">
-        <h3 class="text-amber-300 font-bold text-2xl my-[2rem] text-center">CONTACT ME</h3>
+    <section id="contact" class=" sm:h-full bg-[#74330B] pt-[80px]">
+        <h3 class="text-amber-300 font-bold text-2xl mb-[2rem] text-center">CONTACT ME</h3>
         <div class="h-full flex flex-col justify-between bg-[#74330B]">
             <form action="">
             <div class="flex items-start justify-evenly sm:flex-col">
                 
 
                 
-                    <table class="border-separate w-1/2 table-fixed border-spacing-2 h-1/2 lg:w-[90%] sm:w-[90%] sm:mx-auto">
+                    <table class="border-separate w-1/2 table-fixed border-spacing-2 h-1/2 lg:w-[70%] md:w-[90%] sm:mx-auto pb-8">
                         <tr>
                             <td>
                                 <input type="text" name="" id="" placeholder="First Name" class="h-10 w-full bg-[#74330B] border border-amber-300 text-amber-300 px-[1rem] focus:outline-none focus:border-amber-300 placeholder-amber-300">
@@ -282,7 +291,7 @@
                         </tr>
                     </table>
                 
-                <div class="mt-2 lg:hidden">
+                <div class="mt-2 md:hidden">
                     <ul class="flex flex-col justify-between h-[400px]">
                         <a href="https://github.com/sawlew" target="_blank"><ion-icon name="logo-github" class="text-amber-300 text-4xl hover:text-amber-500"></ion-icon></a>
                         <a href="https://twitter.com/sawlew" target="_blank"><ion-icon name="logo-twitter" class="text-amber-300 text-4xl hover:text-amber-500"></ion-icon></a>
@@ -295,7 +304,7 @@
             </div>
         </form>
             <div class="bg-amber-950 h-20 flex items-center justify-center lg:flex-col lg:h-[160px] lg:justify-evenly">
-                <ul class="2xl:hidden lg:flex w-[90%] mx-auto justify-evenly">
+                <ul id="footer-social" class="lg:flex w-[90%] mx-auto justify-evenly">
                     <a href="https://github.com/sawlew" target="_blank"><ion-icon name="logo-github" class="text-amber-300 text-3xl"></ion-icon></a>
                     <a href="https://twitter.com/sawlew" target="_blank"><ion-icon name="logo-twitter" class="text-amber-300 text-3xl"></ion-icon></a>
                     <a href="https://www.linkedin.com/in/sawlew/" target="_blank"><ion-icon name="logo-linkedin" class="text-amber-300 text-3xl"></ion-icon></a>
