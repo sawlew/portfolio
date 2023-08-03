@@ -654,6 +654,14 @@ video {
   height: 100vh;
 }
 
+.h-12 {
+  height: 3rem;
+}
+
+.h-\[4rem\] {
+  height: 4rem;
+}
+
 .min-h-\[80\%\] {
   min-height: 80%;
 }
@@ -696,6 +704,10 @@ video {
 
 .w-full {
   width: 100%;
+}
+
+.w-\[1600px\] {
+  width: 1600px;
 }
 
 .max-w-\[80\%\] {
@@ -847,6 +859,10 @@ video {
 
 .pt-\[80px\] {
   padding-top: 80px;
+}
+
+.pt-\[4rem\] {
+  padding-top: 4rem;
 }
 
 .text-center {
@@ -1041,6 +1057,11 @@ video {
 
   .md\:h-full {
     height: 100%;
+  }
+
+  .md\:h-fit {
+    height: -moz-fit-content;
+    height: fit-content;
   }
 
   .md\:w-\[90\%\] {
