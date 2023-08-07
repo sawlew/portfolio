@@ -538,16 +538,8 @@ video {
   position: fixed;
 }
 
-.absolute {
-  position: absolute;
-}
-
 .relative {
   position: relative;
-}
-
-.right-\[20px\] {
-  right: 20px;
 }
 
 .z-\[999\] {
@@ -633,17 +625,12 @@ video {
   height: 400px;
 }
 
+.h-\[4rem\] {
+  height: 4rem;
+}
+
 .h-\[50px\] {
   height: 50px;
-}
-
-.h-\[80px\] {
-  height: 80px;
-}
-
-.h-fit {
-  height: -moz-fit-content;
-  height: fit-content;
 }
 
 .h-full {
@@ -652,14 +639,6 @@ video {
 
 .h-screen {
   height: 100vh;
-}
-
-.h-12 {
-  height: 3rem;
-}
-
-.h-\[4rem\] {
-  height: 4rem;
 }
 
 .min-h-\[80\%\] {
@@ -704,10 +683,6 @@ video {
 
 .w-full {
   width: 100%;
-}
-
-.w-\[1600px\] {
-  width: 1600px;
 }
 
 .max-w-\[80\%\] {
@@ -849,16 +824,16 @@ video {
   padding-bottom: 2.5rem;
 }
 
+.pb-12 {
+  padding-bottom: 3rem;
+}
+
 .pb-8 {
   padding-bottom: 2rem;
 }
 
 .pt-10 {
   padding-top: 2.5rem;
-}
-
-.pt-\[80px\] {
-  padding-top: 80px;
 }
 
 .pt-\[4rem\] {
@@ -934,14 +909,14 @@ video {
   border-bottom-width: 8px;
 }
 
-.hover\:bg-amber-800:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(146 64 14 / var(--tw-bg-opacity));
-}
-
 .hover\:bg-amber-300:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(252 211 77 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-amber-800:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(146 64 14 / var(--tw-bg-opacity));
 }
 
 .hover\:text-amber-300:hover {
@@ -977,11 +952,6 @@ video {
 .active\:bg-amber-800:active {
   --tw-bg-opacity: 1;
   background-color: rgb(146 64 14 / var(--tw-bg-opacity));
-}
-
-.active\:text-\[\#74330B\]:active {
-  --tw-text-opacity: 1;
-  color: rgb(116 51 11 / var(--tw-text-opacity));
 }
 
 .active\:text-amber-300:active {
@@ -1055,13 +1025,13 @@ video {
     display: none;
   }
 
-  .md\:h-full {
-    height: 100%;
-  }
-
   .md\:h-fit {
     height: -moz-fit-content;
     height: fit-content;
+  }
+
+  .md\:h-full {
+    height: 100%;
   }
 
   .md\:w-\[90\%\] {
@@ -1129,6 +1099,10 @@ video {
 
   .sm\:items-center {
     align-items: center;
+  }
+
+  .sm\:pb-0 {
+    padding-bottom: 0px;
   }
 
   .sm\:pb-10 {
