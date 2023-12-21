@@ -27,12 +27,28 @@ resetHeight();
 
 // Drop-down menu for mobile design
 function drop(){
-  var b = document.getElementById("colapsed-menu");
-  if (b.style.display === "none") {
-      b.style.display = "flex";
-  }else {
-      b.style.display = "none";
-  }
+  // var b = document.getElementById("colapsed-menu");
+  // if (b.style.display === "none") {
+  //     b.style.display = "flex";
+  // }else {
+  //     b.style.display = "none";
+  // }
+  const navbar = document.getElementById("colapsed-menu");
+  const close = document.getElementById("close");
+  const menu = document.getElementById("menu");
+  navbar.classList.remove("-translate-y-[400px]");
+  close.classList.remove("hidden");
+  menu.classList.add("hidden");
+}
+
+function closeMenu(){
+  console.log("Working...");
+  const navbar = document.getElementById("colapsed-menu");
+  const close = document.getElementById("close");
+  const menu = document.getElementById("menu");
+  navbar.classList.add("-translate-y-[400px]");
+  close.classList.add("hidden");
+  menu.classList.remove("hidden");
 }
 
 //Testtimonial function

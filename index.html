@@ -23,7 +23,7 @@
                 display: none;
             }
 
-            #menu {
+            #menu, #close {
                 display: none;
             }
 
@@ -46,19 +46,20 @@
 
     <header class="fixed w-full  flex items-center justify-center bg-amber-950 z-[999]">
         <nav id="navbar" class="flex justify-between items-center h-[4rem] w-[90%]">
-            <p class="text-amber-300 text-4xl font-medium"><a href="#hero">SOLIU</a></p>
-            <ion-icon name="menu" id="menu" onclick="drop()" class="md:flex text-amber-300 text-4xl"></ion-icon>
+            <p class="text-amber-300 text-4xl font-medium select-none"><a href="#hero">SOLIU</a></p>
+            <ion-icon name="menu" id="menu" onclick="drop()" class="text-amber-300 text-4xl cursor-pointer"></ion-icon>
+            <ion-icon name="close" id="close" onclick="closeMenu()" class="text-amber-300 text-4xl hidden cursor-pointer"></ion-icon>
 
             <ul class="flex justify-between items-center w-1/2 h-full lg:w-[60%] md:hidden">
-                <li><a class="text-amber-300 text-xl font-bold hover:border-b-8 border-amber-300" href="#about">About</a></li>
-                <li><a class="text-amber-300 text-xl  font-bold hover:border-b-8 border-amber-300" href="#skills">Skills</a></li>
-                <li><a class="text-amber-300 text-xl font-bold hover:border-b-8 border-amber-300" href="#projects">Projects</a>
+                <li><a class="text-amber-300 text-xl font-bold hover:border-b-8 border-amber-300 duration-200 ease-linear" href="#about">About</a></li>
+                <li><a class="text-amber-300 text-xl font-bold hover:border-b-8 border-amber-300 duration-200 ease-linear" href="#skills">Skills</a></li>
+                <li><a class="text-amber-300 text-xl font-bold hover:border-b-8 border-amber-300 duration-200 ease-linear" href="#projects">Projects</a>
                 </li>
-                <li><a class="text-amber-300 text-xl font-bold hover:border-b-8 border-amber-300"
+                <li><a class="text-amber-300 text-xl font-bold hover:border-b-8 border-amber-300 duration-200 ease-linear"
                         href="#testimonials">Testimonials</a></li>
-                <li><a class="text-amber-300 text-xl font-bold hover:border-b-8 border-amber-300" href="#contact">Contact</a></li>
+                <li><a class="text-amber-300 text-xl font-bold hover:border-b-8 border-amber-300 duration-200 ease-linear" href="#contact">Contact</a></li>
                 <div class="border-s border-s-amber-300 h-1/2"></div>
-                <li><a class="text-amber-300 text-xl font-bold hover:border-b-8 border-amber-300" href="#blog">Blog</a></li>
+                <li><a class="text-amber-300 text-xl font-bold hover:border-b-8 border-amber-300 duration-200 ease-linear" href="#blog">Blog</a></li>
             </ul>
         </nav>
     </header>
@@ -69,30 +70,30 @@
         class="h-screen pt-[4rem] md:bg-[#74330B] relative bg-cover bg-center mobile:bg-mobile-image desktop:bg-desktop-image md:h-full">
         <!-- ====================Mobile Drop-down Menu================================== -->
         <ul id="colapsed-menu"
-            class="z-[999]  fixed bg-amber-950 flex flex-col justify-between items-center w-full h-[300px]"
-            style="display: none;">
-            <a href="#about" class="w-full text-center" onclick="drop()">
-                <li class="text-amber-300 text-xl font-bold w-full">About</li>
+            class="z-[100]  fixed duration-200 ease-linear -translate-y-[400px] bg-amber-950 flex flex-col justify-between items-center w-full h-[300px]"
+            >
+            <a href="#about" class="w-full text-center" onclick="closeMenu()">
+                <li class="text-amber-300 text-xl font-bold w-full select-none">About</li>
             </a>
             <hr class="w-full border border-amber-300">
-            <a href="#skills" class="w-full text-center" onclick="drop()">
-                <li class="text-amber-300 text-xl font-bold">Skills</li>
+            <a href="#skills" class="w-full text-center" onclick="closeMenu()">
+                <li class="text-amber-300 text-xl font-bold select-none">Skills</li>
             </a>
             <hr class="w-full border border-amber-300">
-            <a href="#projects" class="w-full text-center" onclick="drop()">
-                <li class="text-amber-300 text-xl font-bold">Projects</li>
+            <a href="#projects" class="w-full text-center" onclick="closeMenu()">
+                <li class="text-amber-300 text-xl font-bold select-none">Projects</li>
             </a>
             <hr class="w-full border border-amber-300">
-            <a href="#testimonials" class="w-full text-center" onclick="drop()">
-                <li class="text-amber-300 text-xl font-bold">Testimonials</li>
+            <a href="#testimonials" class="w-full text-center" onclick="closeMenu()">
+                <li class="text-amber-300 text-xl font-bold select-none">Testimonials</li>
             </a>
             <hr class="w-full border border-amber-300">
-            <a href="#contact" class="w-full text-center" onclick="drop()">
-                <li class="text-amber-300 text-xl font-bold">Contact</li>
+            <a href="#contact" class="w-full text-center" onclick="closeMenu()">
+                <li class="text-amber-300 text-xl font-bold select-none">Contact</li>
             </a>
             <hr class="w-full border border-amber-300">
-            <a href="#blog" class="w-full text-center" onclick="drop()">
-                <li class="text-amber-300 text-xl font-bold">Blog</li>
+            <a href="#blog" class="w-full text-center" onclick="closeMenu()">
+                <li class="text-amber-300 text-xl font-bold select-none">Blog</li>
             </a>
             <hr class="w-full border border-amber-300">
         </ul>
@@ -158,6 +159,8 @@
                         <p class="text-xl mb-2 text-amber-300">Tailwind CSS</p>
                         <hr class="border-amber-300 mb-10">
                         <p class="text-xl mb-2 text-amber-300">JavaScript</p>
+                        <hr class="border-amber-300 mb-10">
+                        <p class="text-xl mb-2 text-amber-300">React</p>
                         <hr class="border-amber-300 mb-10">
                         <p class="text-xl mb-2 text-amber-300">UI/UX</p>
                         <hr class="border-amber-300">
@@ -234,7 +237,7 @@
 
     <!-- ==========================================================TESTIMONIAL======================================================== -->
 
-    <section id="testimonials" class="h-screen bg-[#74330B] pt-[4rem] pb-10">
+    <section id="testimonials" class="h-screen bg-[#74330B] pt-[4rem] pb-10 z-10">
         <h2 class="text-amber-300 font-bold text-2xl mb-[2rem] text-center">TESTIMONIALS</h2>
         <div class="w-[70%] xl:w-[90%] min-h-[80%] sm:min-h-[90%] mx-auto border border-amber-300 relative">
             <div class="w-1/6 sm:w-1/2 flex justify-evenly mx-auto my-5">
@@ -307,12 +310,10 @@
 
             <div class="pb-12 sm:pb-0 flex justify-between items-center sm:flex-col gap-8">
                 <div class="sm:flex sm:flex-col sm:items-center">
-                    <p class="text-amber-800 font-semibold">JULY 30TH, 2023</p>
-                    <h3 class="my-5 text-amber-800 font-bold text-3xl sm:text-center">My First Month Experience at
-                        TIIDELab 1.0</h3>
-                    <p class="my-5 text-amber-800 font-semibold sm:text-center">I’m so excited putting this out and I’ll
-                        try my best to make it as brief as possible even though there’s a lot to talk about...</p>
-                    <a href="https://medium.com/@sawlew/my-first-month-experience-at-tiidelab-1-0-9122026d939a"
+                    <p class="text-amber-800 font-semibold">OCTOBER 8TH, 2023</p>
+                    <h3 class="my-5 text-amber-800 font-bold text-3xl sm:text-center">My TIIDELab Experience 3.0(Third Month)</h3>
+                    <p class="my-5 text-amber-800 font-semibold sm:text-center">I can hardly believe that it’s only been three months since I embarked on this journey, but the impact has been so profound that...</p>
+                    <a href="https://medium.com/@sawlew/my-tiidelab-experience-3-0-third-month-e754da5e4919"
                         target="_blank"><button
                             class="border-2 border-amber-800 w-52 h-20 font-bold text-amber-800 hover:bg-amber-800 hover:text-amber-300 active:bg-amber-300 active:text-amber-800">READ
                             MORE</button></a>
@@ -392,18 +393,18 @@
                     <div class="mt-2 md:hidden">
                         <ul class="flex flex-col justify-between h-[400px]">
                             <a href="https://github.com/sawlew" target="_blank"><ion-icon name="logo-github"
-                                    class="text-amber-300 text-4xl hover:text-amber-500"></ion-icon></a>
+                                    class="text-amber-300 text-4xl hover:scale-[1.5] duration-200 ease-linear"></ion-icon></a>
                             <a href="https://twitter.com/sawlew" target="_blank"><ion-icon name="logo-twitter"
-                                    class="text-amber-300 text-4xl hover:text-amber-500"></ion-icon></a>
+                                    class="text-amber-300 text-4xl hover:scale-[1.5] duration-200 ease-linear"></ion-icon></a>
                             <a href="https://www.linkedin.com/in/sawlew/" target="_blank"><ion-icon name="logo-linkedin"
-                                    class="text-amber-300 text-4xl hover:text-amber-500"></ion-icon></a>
+                                    class="text-amber-300 text-4xl hover:scale-[1.5] duration-200 ease-linear"></ion-icon></a>
                             <a href="mailto: sawlew@gmail.com" target="_blank"><ion-icon name="mail-outline"
-                                    class="text-amber-300 text-4xl hover:text-amber-500"></ion-icon></a>
+                                    class="text-amber-300 text-4xl hover:scale-[1.5] duration-200 ease-linear"></ion-icon></a>
                             <a href="https://api.whatsapp.com/send?phone=2348024182946" target="_blank"><ion-icon
                                     name="logo-whatsapp"
-                                    class="text-amber-300 text-4xl hover:text-amber-500"></ion-icon></a>
+                                    class="text-amber-300 text-4xl hover:scale-[1.5] duration-200 ease-linear"></ion-icon></a>
                             <a href="tel:+2348024182946"><ion-icon name="call-outline"
-                                    class="text-amber-300 text-4xl hover:text-amber-500"></ion-icon></a>
+                                    class="text-amber-300 text-4xl hover:scale-[1.5] duration-200 ease-linear"></ion-icon></a>
                         </ul>
                     </div>
                 </div>
@@ -411,17 +412,17 @@
             <div class="bg-amber-950 h-20 flex items-center justify-center lg:flex-col lg:h-[160px] lg:justify-evenly">
                 <ul id="footer-social" class="lg:flex w-[90%] mx-auto justify-evenly">
                     <a href="https://github.com/sawlew" target="_blank"><ion-icon name="logo-github"
-                            class="text-amber-300 text-3xl"></ion-icon></a>
+                            class="text-amber-300 text-3xl hover:scale-[1.5] duration-200 ease-linear"></ion-icon></a>
                     <a href="https://twitter.com/sawlew" target="_blank"><ion-icon name="logo-twitter"
-                            class="text-amber-300 text-3xl"></ion-icon></a>
+                            class="text-amber-300 text-3xl hover:scale-[1.5] duration-200 ease-linear"></ion-icon></a>
                     <a href="https://www.linkedin.com/in/sawlew/" target="_blank"><ion-icon name="logo-linkedin"
-                            class="text-amber-300 text-3xl"></ion-icon></a>
+                            class="text-amber-300 text-3xl hover:scale-[1.5] duration-200 ease-linear"></ion-icon></a>
                     <a href="mailto: sawlew@gmail.com" target="_blank"><ion-icon name="mail-outline"
-                            class="text-amber-300 text-3xl"></ion-icon></a>
+                            class="text-amber-300 text-3xl hover:scale-[1.5] duration-200 ease-linear"></ion-icon></a>
                     <a href="https://api.whatsapp.com/send?phone=2348024182946" target="_blank"><ion-icon
-                            name="logo-whatsapp" class="text-amber-300 text-3xl"></ion-icon></a>
+                            name="logo-whatsapp" class="text-amber-300 text-3xl hover:scale-[1.5] duration-200 ease-linear"></ion-icon></a>
                     <a href="tel:+2348024182946"><ion-icon name="call-outline"
-                            class="text-amber-300 text-3xl"></ion-icon></a>
+                            class="text-amber-300 text-3xl hover:scale-[1.5] duration-200 ease-linear"></ion-icon></a>
                 </ul>
                 <p class="text-amber-300">&COPY; Copyright 2023 - Soliu Adeosun</p>
             </div>
