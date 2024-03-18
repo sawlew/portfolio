@@ -67,13 +67,13 @@ function setDotAndDisplay(dotNumber) {
 
   // Set the selected dot and display
   if (dotNumber === 1) {
-    firstDot.style.background = "rgb(252 211 77)";
+    firstDot.style.background = "#302811";
     first.style.display = "block";
   } else if (dotNumber === 2) {
-    secondDot.style.background = "rgb(252 211 77)";
+    secondDot.style.background = "#302811";
     second.style.display = "block";
   } else if (dotNumber === 3) {
-    thirdDot.style.background = "rgb(252 211 77)";
+    thirdDot.style.background = "#302811";
     third.style.display = "block";
   }
 }
