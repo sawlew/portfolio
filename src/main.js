@@ -77,3 +77,13 @@ function setDotAndDisplay(dotNumber) {
     third.style.display = "block";
   }
 }
+
+// Unavailable GitHub repo
+function noGitHub(){
+  let errorborad = document.querySelector(".no-github");
+  errorborad.classList.remove("invisible");
+  setTimeout(() =>{
+    errorborad.classList.add("invisible");
+  }, 5000);
+  
+}
