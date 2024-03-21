@@ -84,6 +84,6 @@ function noGitHub(){
   errorborad.classList.remove("invisible");
   setTimeout(() =>{
     errorborad.classList.add("invisible");
-  }, 5000);
+  }, 3000);
   
 }
