@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="/dist/output.css" rel="stylesheet">
     <link rel="icon" sizes="32x32" href="src/mbbg.png" />
-    <meta name="theme-color" content="#74330B">
     <title>Soliu Adeosun | Web Developer</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="src/main.js"></script>
     <style>
         @media (min-width: 769px) {
@@ -88,9 +88,9 @@
         <!-- ================================================================================ -->
         <div class="h-full w-[90%] m-auto flex justify-between items-center md:w-full md:flex-col">
             <div class="intro z-30 md:pt-10 w-full md:w-[90%] md:">
-                <p class="text-[#302811] text-xl font-semibold">Hi, my name is</p>
-                <h1 class="text-[#302811] font-bold text-7xl xs:text-[3em]">Soliu Adeosun</h1>
-                <p class="text-[#302811] text-xl my-1 font-semibold">A Frontend Web Developer in Lagos</p>
+                <p class="text-[#302811] text-xl sm:text-sm font-semibold">Hi, my name is</p>
+                <h1 class="text-[#302811] font-bold text-7xl sm:text-5xl xs:text-[3em]">Soliu Adeosun</h1>
+                <p class="text-[#302811] text-xl sm:text-sm my-1 font-semibold">A Frontend Web Developer in Lagos</p>
                 <a href="#contact"><button
                         class="border-2 border-[#302811] w-52 h-20 text-[#302811] mt-5 md:w-full font-semibold hover:bg-[#302811] hover:text-white active:bg-transparent active:text-[#302811]">Get
                         in touch</button></a>
@@ -356,21 +356,18 @@
 
     <!-- ============================================================CONTACT========================================================== -->
 
-    <section id="contact" class=" sm:h-full pt-[4rem]">
+    <section id="contact" class="pt-[4rem] max-w-[90%] lg:max-w-[90%] mx-auto">
         <div class="mb-[2rem] flex gap-2 justify-center items-center">
             <hr class="border-2 border-[#302811] w-1/4">
             <h2 class="text-[#302811] font-bold text-2xl text-center">CONTACT ME</h2>
             <hr class="border-2 border-[#302811] w-1/4">
         </div>
-        <div class="h-full flex flex-col justify-between">
-            <form action="mailto:sawlew@gmail.com"
-            method="POST"
-            enctype="multipart/form-data"
-            name="EmailForm">
-                <div class="flex items-start justify-evenly sm:flex-col">
-                    <table
-                        class="border-separate w-1/2 table-fixed border-spacing-2 h-1/2 lg:w-[70%] md:w-[90%] sm:mx-auto pb-8">
-                        <tr>
+        <!-- <div class="flex flex-col justify-between"> -->
+            
+            <div class="flex items-start justify-evenly">
+                <form id="my-form" action="https://formspree.io/f/xqkrynej" method="POST">
+                    <table class="border-separate table-fixed border-spacing-2 h-1/2 lg:w-[70%] md:w-[100%] md:mx-auto pb-8">
+                        <!-- <tr>
                             <td>
                                 <input type="text" name="" id="" placeholder="First Name"
                                     class="h-10 w-full border bg-transparent border-[#302811] text-[#302811] px-[1rem] focus:outline-none focus:border-[#302811] placeholder-[#302811]">
@@ -379,23 +376,18 @@
                                 <input type="text" name="" id="" placeholder="Last Name"
                                     class="h-10 w-full border bg-transparent border-[#302811] text-[#302811] px-[1rem] focus:outline-none focus:border-[#302811] placeholder-[#302811]">
                             </td>
-                        </tr>
+                        </tr> -->
                         <tr>
                             <td>
-                                <input type="email" name="" id="" placeholder="E-mail" required
+                                <input type="text" name="" id="" placeholder="Name" required
                                     class="h-10 w-full border bg-transparent border-[#302811] text-[#302811] px-[1rem] focus:outline-none focus:border-[#302811] placeholder-[#302811]">
                             </td>
                             <td>
-                                <input type="tel" name="" id="" placeholder="Telephone" required
+                                <input type="email" name="email" id="" placeholder="E-mail" required
                                     class="h-10 w-full border bg-transparent border-[#302811] text-[#302811] px-[1rem] focus:outline-none focus:border-[#302811] placeholder-[#302811]">
                             </td>
                         </tr>
-                        <tr>
-                            <td colspan="2">
-                                <input type="text" placeholder="Subject"
-                                    class="h-10 w-full border bg-transparent border-[#302811] text-[#302811] px-[1rem] focus:outline-none focus:border-[#302811] placeholder-[#302811]">
-                            </td>
-                        </tr>
+
                         <tr>
                             <td colspan="2">
                                 <textarea placeholder="Message" name="" id="" cols="30" rows="10"
@@ -403,55 +395,106 @@
                             </td>
                         </tr>
                         <tr>
+                            <td colspan="2">
+                                <p id="my-form-status"></p>
+                            </td>
+                        </tr>
+                        <tr>
                             <td class="text-center" colspan="2">
-                                <button type="submit"
+                                <button type="submit" id="my-form-button"
                                     class="w-40 h-10 border border-[#302811] text-[#302811] font-semibold hover:bg-[#302811] hover:text-white active:bg-transparent active:text-[#302811]">Send
                                     it</button>
                             </td>
                         </tr>
                     </table>
-
-                    <div class="mt-2 md:hidden">
-                        <ul class="flex flex-col justify-between h-[400px]">
-                            <a href="https://github.com/sawlew" target="_blank"><ion-icon name="logo-github"
-                                    class="text-[#302811] text-4xl hover:scale-[1.5] duration-200 ease-linear"></ion-icon></a>
-                            <a href="https://twitter.com/sawlew" target="_blank"><ion-icon name="logo-twitter"
-                                    class="text-[#302811] text-4xl hover:scale-[1.5] duration-200 ease-linear"></ion-icon></a>
-                            <a href="https://www.linkedin.com/in/sawlew/" target="_blank"><ion-icon name="logo-linkedin"
-                                    class="text-[#302811] text-4xl hover:scale-[1.5] duration-200 ease-linear"></ion-icon></a>
-                            <a href="mailto: sawlew@gmail.com" target="_blank"><ion-icon name="mail-outline"
-                                    class="text-[#302811] text-4xl hover:scale-[1.5] duration-200 ease-linear"></ion-icon></a>
-                            <a href="https://api.whatsapp.com/send?phone=2348024182946" target="_blank"><ion-icon
-                                    name="logo-whatsapp"
-                                    class="text-[#302811] text-4xl hover:scale-[1.5] duration-200 ease-linear"></ion-icon></a>
-                            <a href="tel:+2348024182946"><ion-icon name="call-outline"
-                                    class="text-[#302811] text-4xl hover:scale-[1.5] duration-200 ease-linear"></ion-icon></a>
-                        </ul>
-                    </div>
+                </form>
+                <div class="mt-2 md:hidden">
+                    <ul class="flex flex-col justify-between gap-3">
+                        <a href="https://github.com/sawlew" target="_blank"><ion-icon name="logo-github"
+                                class="text-[#302811] text-4xl hover:scale-[1.5] duration-200 ease-linear"></ion-icon></a>
+                        <a href="https://twitter.com/sawlew" target="_blank"><ion-icon name="logo-twitter"
+                                class="text-[#302811] text-4xl hover:scale-[1.5] duration-200 ease-linear"></ion-icon></a>
+                        <a href="https://www.linkedin.com/in/sawlew/" target="_blank"><ion-icon name="logo-linkedin"
+                                class="text-[#302811] text-4xl hover:scale-[1.5] duration-200 ease-linear"></ion-icon></a>
+                        <a href="mailto: sawlew@gmail.com" target="_blank"><ion-icon name="mail-outline"
+                                class="text-[#302811] text-4xl hover:scale-[1.5] duration-200 ease-linear"></ion-icon></a>
+                        <a href="https://api.whatsapp.com/send?phone=2348024182946" target="_blank"><ion-icon
+                                name="logo-whatsapp"
+                                class="text-[#302811] text-4xl hover:scale-[1.5] duration-200 ease-linear"></ion-icon></a>
+                        <a href="tel:+2348024182946"><ion-icon name="call-outline"
+                                class="text-[#302811] text-4xl hover:scale-[1.5] duration-200 ease-linear"></ion-icon></a>
+                    </ul>
                 </div>
-            </form>
-            <div class="h-20 flex items-center justify-center lg:flex-col lg:h-[160px] lg:justify-evenly bg-transparent backdrop-blur-lg">
-                <ul id="footer-social" class="lg:flex w-[90%] mx-auto justify-evenly">
-                    <a href="https://github.com/sawlew" target="_blank"><ion-icon name="logo-github"
-                            class="text-[#302811] text-3xl hover:scale-[1.5] duration-200 ease-linear"></ion-icon></a>
-                    <a href="https://twitter.com/sawlew" target="_blank"><ion-icon name="logo-twitter"
-                            class="text-[#302811] text-3xl hover:scale-[1.5] duration-200 ease-linear"></ion-icon></a>
-                    <a href="https://www.linkedin.com/in/sawlew/" target="_blank"><ion-icon name="logo-linkedin"
-                            class="text-[#302811] text-3xl hover:scale-[1.5] duration-200 ease-linear"></ion-icon></a>
-                    <a href="mailto: sawlew@gmail.com" target="_blank"><ion-icon name="mail-outline"
-                            class="text-[#302811] text-3xl hover:scale-[1.5] duration-200 ease-linear"></ion-icon></a>
-                    <a href="https://api.whatsapp.com/send?phone=2348024182946" target="_blank"><ion-icon
-                            name="logo-whatsapp" class="text-[#302811] text-3xl hover:scale-[1.5] duration-200 ease-linear"></ion-icon></a>
-                    <a href="tel:+2348024182946"><ion-icon name="call-outline"
-                            class="text-[#302811] text-3xl hover:scale-[1.5] duration-200 ease-linear"></ion-icon></a>
-                </ul>
-                <p class="text-[#302811]">&COPY; Copyright 2023 - Soliu Adeosun</p>
             </div>
-        </div>
+            
+  
+        <!-- </div> -->
 
     </section>
+    <footer>
+        <div class="h-20 flex items-center justify-center lg:flex-col lg:h-[160px] lg:justify-evenly bg-transparent backdrop-blur-lg">
+            <ul id="footer-social" class="lg:flex w-[90%] mx-auto justify-evenly">
+                <a href="https://github.com/sawlew" target="_blank"><ion-icon name="logo-github"
+                        class="text-[#302811] text-3xl hover:scale-[1.5] duration-200 ease-linear"></ion-icon></a>
+                <a href="https://twitter.com/sawlew" target="_blank"><ion-icon name="logo-twitter"
+                        class="text-[#302811] text-3xl hover:scale-[1.5] duration-200 ease-linear"></ion-icon></a>
+                <a href="https://www.linkedin.com/in/sawlew/" target="_blank"><ion-icon name="logo-linkedin"
+                        class="text-[#302811] text-3xl hover:scale-[1.5] duration-200 ease-linear"></ion-icon></a>
+                <a href="mailto: sawlew@gmail.com" target="_blank"><ion-icon name="mail-outline"
+                        class="text-[#302811] text-3xl hover:scale-[1.5] duration-200 ease-linear"></ion-icon></a>
+                <a href="https://api.whatsapp.com/send?phone=2348024182946" target="_blank"><ion-icon
+                        name="logo-whatsapp" class="text-[#302811] text-3xl hover:scale-[1.5] duration-200 ease-linear"></ion-icon></a>
+                <a href="tel:+2348024182946"><ion-icon name="call-outline"
+                        class="text-[#302811] text-3xl hover:scale-[1.5] duration-200 ease-linear"></ion-icon></a>
+            </ul>
+            <p class="text-[#302811]"><span class="font-sans">&COPY;</span>2023-<span id="currentYear"></span> - Soliu Adeosun</p>
+        </div>
+    </footer>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script>
+        // Mailer
+        var form = document.getElementById("my-form");
+        
+        async function handleSubmit(event) {
+            event.preventDefault();
+            var status = document.getElementById("my-form-status");
+            var data = new FormData(event.target);
+            fetch(event.target.action, {
+                method: form.method,
+                body: data,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                status.innerHTML = "Thanks for your submission!";
+                form.reset()
+                } else {
+                response.json().then(data => {
+                    if (Object.hasOwn(data, 'errors')) {
+                    status.innerHTML = data["errors"].map(error => error["message"]).join(", ")
+                    } else {
+                    status.innerHTML = "Oops! There was a problem submitting your form"
+                    }
+                })
+            }
+        }).catch(error => {
+            status.innerHTML = "Oops! There was a problem submitting your form"
+        });
+        }
+        form.addEventListener("submit", handleSubmit)
+
+
+        // Year updater
+        function yearUpdater() {
+            let currentYear = document.getElementById("currentYear");
+            let year = new Date().getFullYear();
+
+            currentYear.innerHTML = year;
+        }
+        yearUpdater();
+    </script>
 </body>
 
 </html>
