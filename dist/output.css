@@ -534,6 +534,10 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
+.container {
+  width: 100%;
+}
+
 .invisible {
   visibility: hidden;
 }
@@ -869,6 +873,10 @@ video {
   padding: 1rem;
 }
 
+.p-20 {
+  padding: 5rem;
+}
+
 .px-\[1rem\] {
   padding-left: 1rem;
   padding-right: 1rem;
@@ -959,16 +967,6 @@ video {
 .text-\[\#302811\] {
   --tw-text-opacity: 1;
   color: rgb(48 40 17 / var(--tw-text-opacity));
-}
-
-.text-green-500 {
-  --tw-text-opacity: 1;
-  color: rgb(34 197 94 / var(--tw-text-opacity));
-}
-
-.text-red-500 {
-  --tw-text-opacity: 1;
-  color: rgb(239 68 68 / var(--tw-text-opacity));
 }
 
 .text-white {

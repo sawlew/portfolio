@@ -6,10 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="/dist/output.css" rel="stylesheet">
     <link rel="icon" sizes="32x32" href="src/mbbg.png" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <title>Soliu Adeosun | Web Developer</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="src/main.js"></script>
     <style>
+        .swiper-pagination .swiper-pagination-bullet-active{
+            background-color: #302811 !important;
+        }
         @media (min-width: 769px) {
             .desktop\:bg-desktop-image {
                 background-image: url('src/double.png');
@@ -34,466 +39,433 @@
     </style>
 </head>
 
-<body class="relative h-full w-full m-auto font-mono bg-[url('/src/wall.png')] sm:bg-[url('/src/mb.png')] bg-no-repeat bg-cover bg-fixed bg-center">
+<body onload="startUp()" class="relative h-full w-full m-auto font-mono bg-[url('/src/wall.png')] sm:bg-[url('/src/mb.png')] bg-no-repeat bg-cover bg-fixed bg-center">
+<div id="loaderScreen" class="w-full h-screen flex justify-center items-center">
+    <img data-aos="flip-left" src="/src/load.gif" alt="" class="">
+</div>
+<main id="mainScreen" class="hidden">
+        <!-- ============================================================HEADING========================================================== -->
 
-    <!-- ============================================================HEADING========================================================== -->
-
-    <header class="fixed w-full  flex items-center justify-center  bg-transparent backdrop-blur-lg z-[999]">
-        <nav id="navbar" class="flex justify-between items-center h-[4rem] w-[90%]">
-            <p class="text-[#302811] text-4xl font-medium select-none"><a href="#hero">soliu</a></p>
-            <ion-icon name="menu" id="menu" onclick="drop()" class="text-[#302811] text-4xl cursor-pointer"></ion-icon>
-            <ion-icon name="close" id="close" onclick="closeMenu()" class="text-[#302811] text-4xl hidden cursor-pointer"></ion-icon>
-
-            <ul class="flex justify-between items-center w-1/2 h-full lg:w-[60%] md:hidden">
-                <li><a class="text-[#302811] text-xl font-semibold hover:border-b-4 border-[#302811] duration-200 ease-linear" href="#about">About</a></li>
-                <li><a class="text-[#302811] text-xl font-semibold hover:border-b-4 border-[#302811] duration-200 ease-linear" href="#skills">Skills</a></li>
-                <li><a class="text-[#302811] text-xl font-semibold hover:border-b-4 border-[#302811] duration-200 ease-linear" href="#projects">Projects</a>
-                </li>
-                <li><a class="text-[#302811] text-xl font-semibold hover:border-b-4 border-[#302811] duration-200 ease-linear"
-                        href="#testimonials">Testimonials</a></li>
-                <li><a class="text-[#302811] text-xl font-semibold hover:border-b-4 border-[#302811] duration-200 ease-linear" href="#contact">Contact</a></li>
-                <div class="border border-[#302811] h-1/2"></div>
-                <li><a class="text-[#302811] text-xl font-semibold hover:border-b-4 border-[#302811] duration-200 ease-linear" href="#blog">Blog</a></li>
+        <header class="fixed w-full  flex items-center justify-center  bg-transparent backdrop-blur-lg z-[999]">
+            <nav id="navbar" class="flex justify-between items-center h-[4rem] w-[90%]">
+                <p class="text-[#302811] text-4xl font-medium select-none"><a href="#hero">soliu</a></p>
+                <ion-icon name="menu" id="menu" onclick="drop()" class="text-[#302811] text-4xl cursor-pointer"></ion-icon>
+                <ion-icon name="close" id="close" onclick="closeMenu()" class="text-[#302811] text-4xl hidden cursor-pointer"></ion-icon>
+    
+                <ul class="flex justify-between items-center w-1/2 h-full lg:w-[60%] md:hidden">
+                    <li><a class="text-[#302811] text-xl font-semibold hover:border-b-4 border-[#302811] duration-200 ease-linear" href="#about">About</a></li>
+                    <li><a class="text-[#302811] text-xl font-semibold hover:border-b-4 border-[#302811] duration-200 ease-linear" href="#skills">Skills</a></li>
+                    <li><a class="text-[#302811] text-xl font-semibold hover:border-b-4 border-[#302811] duration-200 ease-linear" href="#projects">Projects</a>
+                    </li>
+                    <li><a class="text-[#302811] text-xl font-semibold hover:border-b-4 border-[#302811] duration-200 ease-linear"
+                            href="#testimonials">Testimonials</a></li>
+                    <li><a class="text-[#302811] text-xl font-semibold hover:border-b-4 border-[#302811] duration-200 ease-linear" href="#contact">Contact</a></li>
+                    <div class="border border-[#302811] h-1/2"></div>
+                    <li><a class="text-[#302811] text-xl font-semibold hover:border-b-4 border-[#302811] duration-200 ease-linear" href="#blog">Blog</a></li>
+                </ul>
+            </nav>
+        </header>
+    
+        <!-- ==========================================================HERO SECTION======================================================== -->
+    
+        <section id="hero"
+            class="h-screen pt-[4rem] md:bg-white relative bg-cover bg-center mobile:bg-mobile-image desktop:bg-desktop-image md:h-full md:bg-[url('/src/doublemb.png')]">
+            <!-- ====================Mobile Drop-down Menu================================== -->
+            <ul id="colapsed-menu"
+                class="z-[100]  fixed duration-200 ease-linear -translate-y-[400px] bg-transparent backdrop-blur-lg flex flex-col justify-between items-center w-full h-[300px]"
+                >
+                <a href="#about" class="w-full text-center" onclick="closeMenu()">
+                    <li class="text-[#302811] text-xl font-bold w-full select-none">About</li>
+                </a>
+                <a href="#skills" class="w-full text-center" onclick="closeMenu()">
+                    <li class="text-[#302811] text-xl font-bold select-none">Skills</li>
+                </a>
+                <a href="#projects" class="w-full text-center" onclick="closeMenu()">
+                    <li class="text-[#302811] text-xl font-bold select-none">Projects</li>
+                </a>
+                <a href="#testimonials" class="w-full text-center" onclick="closeMenu()">
+                    <li class="text-[#302811] text-xl font-bold select-none">Testimonials</li>
+                </a>
+                <a href="#contact" class="w-full text-center" onclick="closeMenu()">
+                    <li class="text-[#302811] text-xl font-bold select-none">Contact</li>
+                </a>
+                <a href="#blog" class="w-full text-center" onclick="closeMenu()">
+                    <li class="text-[#302811] text-xl font-bold select-none">Blog</li>
+                </a>
             </ul>
-        </nav>
-    </header>
-
-    <!-- ==========================================================HERO SECTION======================================================== -->
-
-    <section id="hero"
-        class="h-screen pt-[4rem] md:bg-white relative bg-cover bg-center mobile:bg-mobile-image desktop:bg-desktop-image md:h-full md:bg-[url('/src/doublemb.png')]">
-        <!-- ====================Mobile Drop-down Menu================================== -->
-        <ul id="colapsed-menu"
-            class="z-[100]  fixed duration-200 ease-linear -translate-y-[400px] bg-transparent backdrop-blur-lg flex flex-col justify-between items-center w-full h-[300px]"
-            >
-            <a href="#about" class="w-full text-center" onclick="closeMenu()">
-                <li class="text-[#302811] text-xl font-bold w-full select-none">About</li>
-            </a>
-            <a href="#skills" class="w-full text-center" onclick="closeMenu()">
-                <li class="text-[#302811] text-xl font-bold select-none">Skills</li>
-            </a>
-            <a href="#projects" class="w-full text-center" onclick="closeMenu()">
-                <li class="text-[#302811] text-xl font-bold select-none">Projects</li>
-            </a>
-            <a href="#testimonials" class="w-full text-center" onclick="closeMenu()">
-                <li class="text-[#302811] text-xl font-bold select-none">Testimonials</li>
-            </a>
-            <a href="#contact" class="w-full text-center" onclick="closeMenu()">
-                <li class="text-[#302811] text-xl font-bold select-none">Contact</li>
-            </a>
-            <a href="#blog" class="w-full text-center" onclick="closeMenu()">
-                <li class="text-[#302811] text-xl font-bold select-none">Blog</li>
-            </a>
-        </ul>
-        <!-- ================================================================================ -->
-        <div class="h-full w-[90%] m-auto flex justify-between items-center md:w-full md:flex-col">
-            <div class="intro z-30 md:pt-10 w-full md:w-[90%] md:">
-                <p class="text-[#302811] text-xl sm:text-sm font-semibold">Hi, my name is</p>
-                <h1 class="text-[#302811] font-bold text-7xl sm:text-5xl xs:text-[3em]">Soliu Adeosun</h1>
-                <p class="text-[#302811] text-xl sm:text-sm my-1 font-semibold">A Frontend Web Developer in Lagos</p>
-                <a href="#contact"><button
-                        class="border-2 border-[#302811] w-52 h-20 text-[#302811] mt-5 md:w-full font-semibold hover:bg-[#302811] hover:text-white active:bg-transparent active:text-[#302811]">Get
-                        in touch</button></a>
-            </div>
-            <div>
-                <img src="src/mbbg.png" alt="" id="mb-image" class="md:block mt-5">
-            </div>
-        </div>
-        
-    </section>
-
-    <!-- ============================================================ABOUT========================================================== -->
-
-    <section id="about" class="pt-[4rem] md:h-fit">
-        <div class="w-[60%] md:w-[90%] sm:w-[95%] xl:w-[80%]  mx-auto pb-8">
-            <div class="mb-[2rem] flex gap-2 justify-center items-center">
-                <hr class="border-2 border-[#302811] w-1/4">
-                <h2 class="text-[#302811] font-bold text-2xl text-center">ABOUT</h2>
-                <hr class="border-2 border-[#302811] w-1/4">
+            <!-- ================================================================================ -->
+            <div class="h-full w-[90%] m-auto flex justify-between items-center md:w-full md:flex-col">
+                <div data-aos="fade-right" class="intro z-30 md:pt-10 w-full md:w-[90%] md:">
+                    <p class="text-[#302811] text-xl sm:text-sm font-semibold">Hi, my name is</p>
+                    <h1 class="text-[#302811] font-bold text-7xl sm:text-5xl xs:text-[3em]">Soliu Adeosun</h1>
+                    <p class="text-[#302811] text-xl sm:text-sm my-1 font-semibold">A Frontend Web Developer in Lagos</p>
+                    <a href="#contact"><button
+                            class="border-2 border-[#302811] w-52 h-20 text-[#302811] mt-5 md:w-full font-semibold hover:bg-[#302811] hover:text-white active:bg-transparent active:text-[#302811]">Get
+                            in touch</button></a>
+                </div>
+                <div>
+                    <img src="src/mbbg.png" alt="" id="mb-image" class="md:block mt-5">
+                </div>
             </div>
             
-            <div class="border-2 p-4 border-[#302811] flex flex-col">
-                <p class="text-xl lg:text-[1rem] sm:mb-1 mb-4 text-[#302811] font-semibold">My name is Soliu Adeosun, a
-                    Front-end developer with expertise in Reactjs, JavaScript, HTML, Python, Vanilla CSS, Tailwind CSS, Git, and
-                    Github.
-                </p>
-                <p class="text-xl lg:text-[1rem] sm:mb-1 mb-4 text-[#302811] font-semibold">I have a track record of
-                    successful contributions to projects like MedEase(A medication reminder app) and other open source projects. Apart
-                    from these projects, I've engaged in honing my skills through personal projects, team projects, and
-                    open-source projects.</p>
-
-                <p class="text-xl lg:text-[1rem] sm:mb-1 mb-4 text-[#302811] font-semibold">Apart from coding, I enjoy
-                    playing puzzle games like Sudoku and Rubiks.
-                    <br>If you're in need of a Front-end developer to join your team or assist with a project, I'm just
-                    a message away. I can be versatile on other tracks too.<br>
-                    Feel free to reach out to me.
-                </p>
-                <a href="https://docs.google.com/document/d/1MqhQis2Vdo82yi9OPv9-Sk7jnNXXYYisvD-Anc1CMhs/edit?usp=sharing" target="_blank" class="text-center"><button
-                    class="border-2 border-[#302811] w-52 h-20 text-[#302811] mt-5 md:w-full font-semibold hover:bg-[#302811] hover:text-white active:bg-transparent active:text-[#302811]">Download CV</button></a>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================================SKILL========================================================== -->
-
-    <section id="skills" class="sm:h-full sm:pb-20 pt-[4rem]">
-        <div class="w-[60%] lg:w-[80%] md:w-[95%] h-full mx-auto">
-            <div class="mb-[2rem] flex gap-2 justify-center items-center">
-                <hr class="border-2 border-[#302811] w-1/4">
-                <h2 class="text-[#302811] font-bold text-2xl text-center">SKILLS</h2>
-                <hr class="border-2 border-[#302811] w-1/4">
-            </div>
-            <div class="flex justify-between sm:flex-col sm:w-[80%] mx-auto">
-                <div id="frontend">
-                    <h2 class="text-[#302811] font-bold text-2xl mb-[2rem] sm:text-center">Frontend development</h2>
-                    <div class="font-semibold">
-                        <p class="text-xl mb-2 text-[#302811]">HTML</p>
-                        <hr class="border-2 border-[#302811] mb-10">
-                        <p class="text-xl mb-2 text-[#302811]">CSS</p>
-                        <hr class="border-2 border-[#302811] mb-10">
-                        <p class="text-xl mb-2 text-[#302811]">Tailwind CSS</p>
-                        <hr class="border-2 border-[#302811] mb-10">
-                        <p class="text-xl mb-2 text-[#302811]">JavaScript</p>
-                        <hr class="border-2 border-[#302811] mb-10">
-                        <p class="text-xl mb-2 text-[#302811]">React</p>
-                        <hr class="border-2 border-[#302811] mb-10">
-                        <p class="text-xl mb-2 text-[#302811]">UI/UX</p>
-                        <hr class="border-2 border-[#302811]">
-                    </div>
+        </section>
+    
+        <!-- ============================================================ABOUT========================================================== -->
+    
+        <section id="about" class="pt-[4rem] md:h-fit">
+            <div class="w-[60%] md:w-[90%] sm:w-[95%] xl:w-[80%]  mx-auto pb-8">
+                <div data-aos="fade-up" class="mb-[2rem] flex gap-2 justify-center items-center">
+                    <hr class="border-2 border-[#302811] w-1/4">
+                    <h2 class="text-[#302811] font-bold text-2xl text-center">ABOUT</h2>
+                    <hr class="border-2 border-[#302811] w-1/4">
                 </div>
-                <div id="backend" class="sm:mt-10">
-                    <h2 class="text-[#302811] font-bold text-2xl mb-[2rem] sm:text-center">Backend development</h2>
-                    <p class="text-xl mb-2 text-[#302811] font-semibold">Python(Django)</p>
-                    <hr class="border-2 border-[#302811]">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================================PROJECT========================================================== -->
-
-    <section id="projects" class="pb-10">
-        <div id="pcontainer" class="w-[90%] h-full pt-[4rem] mx-auto md:w-[90%]">
-            <div class="mb-[2rem] flex gap-2 justify-center items-center">
-                <hr class="border-2 border-[#302811] w-1/4">
-                <h2 class="text-[#302811] font-bold text-2xl text-center">PROJECTS</h2>
-                <hr class="border-2 border-[#302811] w-1/4">
-            </div>
-            <div class="grid grid-cols-2 gap-8 md:grid-cols-1">
-                <div class="w-[80%] flex flex-col justify-between items-center mx-auto">
-                    <img src="src/kuda.PNG" alt="">
-                    <p class="text-[#302811] font-bold">Virtual Reality UI</p>
-                    <p class="text-[#302811] font-semibold text-center py-4">This is a responsive virtual reality
-                        banking application with adaptable UI components for Kuda Bank</p>
-                    <div class="w-full flex gap-1 justify-center">
-                        <a href="https://kudabank-taupe.vercel.app/" target="_blank" class="w-[150px]"><button
-                                class="border-2 border-[#302811] w-[100%] h-[50px] text-[#302811] font-bold hover:bg-[#302811] hover:text-white active:bg-transparent active:text-[#302811]">Demo</button></a>
-                        <a href="https://github.com/sawlew/kudabank" target="_blank" class="w-[150px]"><button
-                                class="border-2 border-[#302811] w-[100%] h-[50px] text-[#302811] font-bold hover:bg-[#302811] hover:text-white active:bg-transparent active:text-[#302811]">GitHub</button></a>
-                    </div>
-                </div>
-                <div class="w-[80%] flex flex-col justify-between items-center mx-auto">
-                    <img src="src/fb.PNG" alt="">
-                    <p class="text-[#302811] font-bold">Facebook clone</p>
-                    <p class="text-[#302811] font-semibold text-center py-4">Beautifuly designed Facebook with highly
-                        responsive UI. Made with HTML, CSS and Js.</p>
-                    <div class="w-full flex gap-1 justify-center">
-                        <a href="https://sawlew.github.io/dummy/" target="_blank" class="w-[150px]"><button
-                                class="border-2 border-[#302811] w-[100%] h-[50px] text-[#302811] font-bold hover:bg-[#302811] hover:text-white active:bg-transparent active:text-[#302811]">Demo</button></a>
-                        <a href="https://github.com/sawlew/dummy" target="_blank" class="w-[150px]"><button
-                                class="border-2 border-[#302811] w-[100%] h-[50px] text-[#302811] font-bold hover:bg-[#302811] hover:text-white active:bg-transparent active:text-[#302811]">GitHub</button></a>
-                    </div>
-                </div>
-
-                <div class="w-[80%] flex flex-col justify-between items-center mx-auto">
-                    <img src="src/travel.PNG" alt="">
-                    <p class="text-[#302811] font-bold">TravelnTour Landing page</p>
-                    <p class="text-[#302811] font-semibold text-center py-4">A Landing page for a travel agency with a
-                        rich and adaptable UI.</p>
-                    <div class="w-full flex gap-1 justify-center">
-                        <a href="https://sawlew.github.io/TravelnTour/" target="_blank" class="w-[150px]"><button
-                                class="border-2 border-[#302811] w-[100%] h-[50px] text-[#302811] font-bold hover:bg-[#302811] hover:text-white active:bg-transparent active:text-[#302811]">Demo</button></a>
-                        <a href="https://github.com/sawlew/TravelnTour" target="_blank" class="w-[150px]"><button
-                                class="border-2 border-[#302811] w-[100%] h-[50px] text-[#302811] font-bold hover:bg-[#302811] hover:text-white active:bg-transparent active:text-[#302811]">GitHub</button></a>
-                    </div>
-                </div>
-                <div class="w-[80%] flex flex-col justify-between items-center mx-auto">
-                    <img src="src/sawlew.github.io_unzipit_.png" alt="">
-                    <p class="text-[#302811] font-bold">Unzipit</p>
-                    <p class="text-[#302811] font-semibold text-center py-4">This is a personal project and it is a web application used to extract zip files.</p>
-                    <div class="w-full flex gap-1 justify-center">
-                        <a href="https://sawlew.github.io/unzipit/" target="_blank" class="w-[150px]"><button
-                                class="border-2 border-[#302811] w-[100%] h-[50px] text-[#302811] font-bold hover:bg-[#302811] hover:text-white active:bg-transparent active:text-[#302811]">Demo</button></a>
-                        <a href="https://github.com/sawlew/unzipit" target="_blank" class="w-[150px]"><button
-                                class="border-2 border-[#302811] w-[100%] h-[50px] text-[#302811] font-bold hover:bg-[#302811] hover:text-white active:bg-transparent active:text-[#302811]">GitHub</button></a>
-                    </div>
-                </div>
-                <div class="w-[80%] flex flex-col justify-between items-center mx-auto relative">
-                    <img src="src/vido.png" alt="">
-                    <p class="text-[#302811] font-bold">Vido Exchange</p>
-                    <p class="text-[#302811] font-semibold text-center py-4">An Exchange platform used to make Deposit, Withdrawal, Send and Request of vEuro to vNaira for Nigerians in Europe.</p>
-                    <div class="w-full flex gap-1 justify-center">
-                        <a href="https://vido.exchange" target="_blank" class="w-[150px]"><button
-                                class="border-2 border-[#302811] w-[100%] h-[50px] text-[#302811] font-bold hover:bg-[#302811] hover:text-white active:bg-transparent active:text-[#302811]">Demo</button></a>
-                        <a onclick="noGitHub()" class="w-[150px]"><button
-                                class="active:bg-transparent active:text-[#302811] border-2 border-[#302811] w-[100%] h-[50px] text-[#302811] font-bold hover:bg-[#302811] hover:text-white">GitHub</button></a>
-                    </div>
-                    <div class="no-github absolute w-full h-[60%] flex justify-center items-center text-center text-white bg-[#302811d2] invisible">
-                        <p class="text-xl">GitHub is not available for security reasons</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </section>
-
-    <!-- ==========================================================TESTIMONIAL======================================================== -->
-
-    <section id="testimonials" class="pt-[4rem] pb-10 z-10">
-        <div class="mb-[2rem] flex gap-2 justify-center items-center">
-            <hr class="border-2 border-[#302811] w-1/4">
-            <h2 class="text-[#302811] font-bold text-2xl text-center">TESTIMONIALS</h2>
-            <hr class="border-2 border-[#302811] w-1/4">
-        </div>
-        <div class="w-[70%] xl:w-[90%] min-h-[80%] sm:min-h-[90%] mx-auto border-2 border-[#302811] relative">
-            <div class="w-1/6 sm:w-1/2 flex justify-evenly mx-auto my-5">
-                <div class="w-3 h-3 rounded-full border border-[#302811] cursor-pointer bg-[#302811]" id="pointer1" onclick="setDotAndDisplay(1)"></div>
-                <div class="w-3 h-3 rounded-full border border-[#302811] cursor-pointer" id="pointer2" onclick="setDotAndDisplay(2)"></div>
-                <div class="w-3 h-3 rounded-full border border-[#302811] cursor-pointer" id="pointer3" onclick="setDotAndDisplay(3)"></div>
-            </div>
-            <div class="w-[90%] h-[25rem] sm:h-[30rem] mx-auto flex justify-center items-center">
-                <div class="w-full h-fit mx-auto" id="first">
-                    <h3 class="text-[#302811] text-2xl sm:text-[1.25rem] xs:text-[1rem] font-bold">
-                        Working with Soliu has been an absolute pleasure! His exceptional problem-solving skills and creative approach to software development have been a tremendous asset to our team.
-                        Whether it's tackling complex coding challenges or collaborating on new projects, he consistently brings his ‘A’ game.
-                    </h3>
-                    <p class="text-right text-[#302811] pt-10">
-                        <strong>Zubaidat S.</strong><br>
-                        <span class="italic font-semibold">Coding partner</span>
+                
+                <div data-aos="fade-right" class="border-2 p-4 border-[#302811] flex flex-col">
+                    <p class="text-xl lg:text-[1rem] sm:mb-1 mb-4 text-[#302811] font-semibold">My name is Soliu Adeosun, a
+                        Front-end developer with expertise in Reactjs, JavaScript, HTML, Python, Vanilla CSS, Tailwind CSS, Git, and
+                        Github.
                     </p>
-                </div>
-                <div class="w-full mx-auto hidden" id="second">
-                    <h3 class="text-[#302811] text-2xl font-bold">We started looking for a web developer last year
-                        and were fortunate to find Soliu. He's been easy to work with since the very beginning: organized,
-                        responsive, helpful and always on time.</h3>
-                    <p class="text-right text-[#302811]">
-                        <strong>Abdullah B.</strong><br>
-                        <span class="italic font-semibold">Cyber-security Officer</span>
+                    <p class="text-xl lg:text-[1rem] sm:mb-1 mb-4 text-[#302811] font-semibold">I have a track record of
+                        successful contributions to projects like MedEase(A medication reminder app) and other open source projects. Apart
+                        from these projects, I've engaged in honing my skills through personal projects, team projects, and
+                        open-source projects.</p>
+    
+                    <p class="text-xl lg:text-[1rem] sm:mb-1 mb-4 text-[#302811] font-semibold">Apart from coding, I enjoy
+                        playing puzzle games like Sudoku and Rubiks.
+                        <br>If you're in need of a Front-end developer to join your team or assist with a project, I'm just
+                        a message away. I can be versatile on other tracks too.<br>
+                        Feel free to reach out to me.
                     </p>
-                </div>
-                <div class="w-full mx-auto hidden" id="third">
-                    <h3 class="text-[#302811] text-2xl font-bold">
-                        Soliu is my go-to for all things web. I've had the privilege of working with him. He is reliable,
-                        honest and great at what he does. Highly recommend!
-                    </h3>
-                    <p class="text-right text-[#302811]">
-                        <strong>Adedeji A.</strong><br>
-                        <span class="italic font-semibold">Cyber-security Officer</span>
-                    </p>
+                    <a href="https://docs.google.com/document/d/1MqhQis2Vdo82yi9OPv9-Sk7jnNXXYYisvD-Anc1CMhs/edit?usp=sharing" target="_blank" class="text-center"><button
+                        class="border-2 border-[#302811] w-52 h-20 text-[#302811] mt-5 md:w-full font-semibold hover:bg-[#302811] hover:text-white active:bg-transparent active:text-[#302811]">Download CV</button></a>
                 </div>
             </div>
-            
-        </div>
-    </section>
-
-    <!-- ============================================================BLOG========================================================== -->
-
-    <section id="blog" class="sm:h-full sm:pb-10">
-        <div class="max-w-[80%] lg:max-w-[90%] pt-[4rem] mx-auto">
-            <div class="mb-[2rem] flex gap-2 justify-center items-center">
+        </section>
+    
+        <!-- ============================================================SKILL========================================================== -->
+    
+        <section id="skills" class="sm:h-full sm:pb-20 pt-[4rem]">
+            <div class="w-[60%] lg:w-[80%] md:w-[95%] h-full mx-auto">
+                <div data-aos="fade-up" class="mb-[2rem] flex gap-2 justify-center items-center">
+                    <hr class="border-2 border-[#302811] w-1/4">
+                    <h2 class="text-[#302811] font-bold text-2xl text-center">SKILLS</h2>
+                    <hr class="border-2 border-[#302811] w-1/4">
+                </div>
+                <div class="flex justify-between sm:flex-col sm:w-[80%] mx-auto">
+                    <div id="frontend">
+                        <h2 data-aos="zoom-in" class="text-[#302811] font-bold text-2xl mb-[2rem] sm:text-center">Frontend development</h2>
+                        <div class="font-semibold">
+                            <p data-aos="fade-right" class="text-xl mb-2 text-[#302811]">HTML</p>
+                            <hr data-aos="fade-right" class="border-2 border-[#302811] mb-10">
+                            <p data-aos="fade-right" class="text-xl mb-2 text-[#302811]">CSS</p>
+                            <hr data-aos="fade-right" class="border-2 border-[#302811] mb-10">
+                            <p data-aos="fade-right" class="text-xl mb-2 text-[#302811]">Tailwind CSS</p>
+                            <hr data-aos="fade-right" class="border-2 border-[#302811] mb-10">
+                            <p data-aos="fade-right" class="text-xl mb-2 text-[#302811]">JavaScript</p>
+                            <hr data-aos="fade-right" class="border-2 border-[#302811] mb-10">
+                            <p data-aos="fade-right" class="text-xl mb-2 text-[#302811]">React</p>
+                            <hr data-aos="fade-right" class="border-2 border-[#302811] mb-10">
+                            <p data-aos="fade-right" class="text-xl mb-2 text-[#302811]">UI/UX</p>
+                            <hr data-aos="fade-right" class="border-2 border-[#302811]">
+                        </div>
+                    </div>
+                    <div id="backend" class="sm:mt-10">
+                        <h2 data-aos="zoom-in" class="text-[#302811] font-bold text-2xl mb-[2rem] sm:text-center">Backend development</h2>
+                        <p data-aos="fade-left" class="text-xl mb-2 text-[#302811] font-semibold">Python(Django)</p>
+                        <hr data-aos="fade-left" class="border-2 border-[#302811]">
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        <!-- ============================================================PROJECT========================================================== -->
+    
+        <section id="projects" class="pb-10">
+            <div id="pcontainer" class="w-[90%] h-full pt-[4rem] mx-auto md:w-[90%]">
+                <div data-aos="fade-up" class="mb-[2rem] flex gap-2 justify-center items-center">
+                    <hr class="border-2 border-[#302811] w-1/4">
+                    <h2 class="text-[#302811] font-bold text-2xl text-center">PROJECTS</h2>
+                    <hr class="border-2 border-[#302811] w-1/4">
+                </div>
+                <div class="grid grid-cols-2 gap-8 md:grid-cols-1">
+                    <div data-aos="zoom-in" class="w-[80%] flex flex-col justify-between items-center mx-auto">
+                        <img src="src/kuda.PNG" alt="">
+                        <p class="text-[#302811] font-bold">Virtual Reality UI</p>
+                        <p class="text-[#302811] font-semibold text-center py-4">This is a responsive virtual reality
+                            banking application with adaptable UI components for Kuda Bank</p>
+                        <div class="w-full flex gap-1 justify-center">
+                            <a href="https://kudabank-taupe.vercel.app/" target="_blank" class="w-[150px]"><button
+                                    class="border-2 border-[#302811] w-[100%] h-[50px] text-[#302811] font-bold hover:bg-[#302811] hover:text-white active:bg-transparent active:text-[#302811]">Demo</button></a>
+                            <a href="https://github.com/sawlew/kudabank" target="_blank" class="w-[150px]"><button
+                                    class="border-2 border-[#302811] w-[100%] h-[50px] text-[#302811] font-bold hover:bg-[#302811] hover:text-white active:bg-transparent active:text-[#302811]">GitHub</button></a>
+                        </div>
+                    </div>
+                    <div data-aos="zoom-in" class="w-[80%] flex flex-col justify-between items-center mx-auto">
+                        <img src="src/fb.PNG" alt="">
+                        <p class="text-[#302811] font-bold">Facebook clone</p>
+                        <p class="text-[#302811] font-semibold text-center py-4">Beautifuly designed Facebook with highly
+                            responsive UI. Made with HTML, CSS and Js.</p>
+                        <div class="w-full flex gap-1 justify-center">
+                            <a href="https://sawlew.github.io/dummy/" target="_blank" class="w-[150px]"><button
+                                    class="border-2 border-[#302811] w-[100%] h-[50px] text-[#302811] font-bold hover:bg-[#302811] hover:text-white active:bg-transparent active:text-[#302811]">Demo</button></a>
+                            <a href="https://github.com/sawlew/dummy" target="_blank" class="w-[150px]"><button
+                                    class="border-2 border-[#302811] w-[100%] h-[50px] text-[#302811] font-bold hover:bg-[#302811] hover:text-white active:bg-transparent active:text-[#302811]">GitHub</button></a>
+                        </div>
+                    </div>
+    
+                    <div data-aos="zoom-in" class="w-[80%] flex flex-col justify-between items-center mx-auto">
+                        <img src="src/travel.PNG" alt="">
+                        <p class="text-[#302811] font-bold">TravelnTour Landing page</p>
+                        <p class="text-[#302811] font-semibold text-center py-4">A Landing page for a travel agency with a
+                            rich and adaptable UI.</p>
+                        <div class="w-full flex gap-1 justify-center">
+                            <a href="https://sawlew.github.io/TravelnTour/" target="_blank" class="w-[150px]"><button
+                                    class="border-2 border-[#302811] w-[100%] h-[50px] text-[#302811] font-bold hover:bg-[#302811] hover:text-white active:bg-transparent active:text-[#302811]">Demo</button></a>
+                            <a href="https://github.com/sawlew/TravelnTour" target="_blank" class="w-[150px]"><button
+                                    class="border-2 border-[#302811] w-[100%] h-[50px] text-[#302811] font-bold hover:bg-[#302811] hover:text-white active:bg-transparent active:text-[#302811]">GitHub</button></a>
+                        </div>
+                    </div>
+                    <div data-aos="zoom-in" class="w-[80%] flex flex-col justify-between items-center mx-auto">
+                        <img src="src/sawlew.github.io_unzipit_.png" alt="">
+                        <p class="text-[#302811] font-bold">Unzipit</p>
+                        <p class="text-[#302811] font-semibold text-center py-4">This is a personal project and it is a web application used to extract zip files.</p>
+                        <div class="w-full flex gap-1 justify-center">
+                            <a href="https://sawlew.github.io/unzipit/" target="_blank" class="w-[150px]"><button
+                                    class="border-2 border-[#302811] w-[100%] h-[50px] text-[#302811] font-bold hover:bg-[#302811] hover:text-white active:bg-transparent active:text-[#302811]">Demo</button></a>
+                            <a href="https://github.com/sawlew/unzipit" target="_blank" class="w-[150px]"><button
+                                    class="border-2 border-[#302811] w-[100%] h-[50px] text-[#302811] font-bold hover:bg-[#302811] hover:text-white active:bg-transparent active:text-[#302811]">GitHub</button></a>
+                        </div>
+                    </div>
+                    <div data-aos="zoom-in" class="w-[80%] flex flex-col justify-between items-center mx-auto relative">
+                        <img src="src/vido.png" alt="">
+                        <p class="text-[#302811] font-bold">Vido Exchange</p>
+                        <p class="text-[#302811] font-semibold text-center py-4">An Exchange platform used to make Deposit, Withdrawal, Send and Request of vEuro to vNaira for Nigerians in Europe.</p>
+                        <div class="w-full flex gap-1 justify-center">
+                            <a href="https://vido.exchange" target="_blank" class="w-[150px]"><button
+                                    class="border-2 border-[#302811] w-[100%] h-[50px] text-[#302811] font-bold hover:bg-[#302811] hover:text-white active:bg-transparent active:text-[#302811]">Demo</button></a>
+                            <a onclick="noGitHub()" class="w-[150px]"><button
+                                    class="active:bg-transparent active:text-[#302811] border-2 border-[#302811] w-[100%] h-[50px] text-[#302811] font-bold hover:bg-[#302811] hover:text-white">GitHub</button></a>
+                        </div>
+                        <div class="no-github absolute w-full h-[60%] flex justify-center items-center text-center text-white bg-[#302811d2] invisible">
+                            <p class="text-xl">GitHub is not available for security reasons</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+        </section>
+    
+        <!-- ==========================================================TESTIMONIAL======================================================== -->
+    
+        <section id="testimonials" class="pt-[4rem] pb-10 z-10">
+            <div data-aos="fade-up" class="mb-[2rem] flex gap-2 justify-center items-center">
                 <hr class="border-2 border-[#302811] w-1/4">
-                <h2 class="text-[#302811] font-bold text-2xl text-center">BLOG</h2>
+                <h2 class="text-[#302811] font-bold text-2xl text-center">TESTIMONIALS</h2>
                 <hr class="border-2 border-[#302811] w-1/4">
             </div>
-            <div class="pb-12 flex justify-between items-center sm:flex-col gap-8">
-                <div class="sm:flex sm:flex-col sm:items-center">
-                    <p class="text-[#302811] font-semibold">JULY 30TH, 2023</p>
-                    <h3 class="my-5 text-[#302811] font-bold text-3xl sm:text-center">My First Month Experience at
-                        TIIDELab 1.0</h3>
-                    <p class="my-5 text-[#302811] font-semibold sm:text-center">I’m so excited putting this out and I’ll
-                        try my best to make it as brief as possible even though there’s a lot to talk about...</p>
-                    <a href="https://medium.com/@sawlew/my-first-month-experience-at-tiidelab-1-0-9122026d939a"
-                        target="_blank"><button
-                            class="border-2 border-[#302811] w-52 h-20 font-bold text-[#302811] hover:bg-[#302811] hover:text-white active:bg-transparent active:text-[#302811]">READ
-                            MORE</button></a>
+            <div data-aos="zoom-in" class="swiper w-[70%] xl:w-[90%] min-h-[80%] sm:min-h-[90%] mx-auto relative">
+                <!-- <div class="w-1/6 sm:w-1/2 flex justify-evenly mx-auto my-5">
+                    <div class="w-3 h-3 rounded-full border border-[#302811] cursor-pointer bg-[#302811]" id="pointer1" onclick="setDotAndDisplay(1)"></div>
+                    <div class="w-3 h-3 rounded-full border border-[#302811] cursor-pointer" id="pointer2" onclick="setDotAndDisplay(2)"></div>
+                    <div class="w-3 h-3 rounded-full border border-[#302811] cursor-pointer" id="pointer3" onclick="setDotAndDisplay(3)"></div>
+                </div> -->
+                <div class="swiper-pagination"></div>
+                <div class="swiper-wrapper w-[90%] h-[25rem] sm:h-[30rem] mx-auto">
+                    <div class="swiper-slide w-full h-fit mx-auto" id="first">
+                        <h3 class="text-[#302811] text-2xl sm:text-[1.25rem] xs:text-[1rem] font-bold">
+                            Working with Soliu has been an absolute pleasure! His exceptional problem-solving skills and creative approach to software development have been a tremendous asset to our team.
+                            Whether it's tackling complex coding challenges or collaborating on new projects, he consistently brings his ‘A’ game.
+                        </h3>
+                        <p class="text-right text-[#302811] pt-10">
+                            <strong>Zubaidat S.</strong><br>
+                            <span class="italic font-semibold">Coding partner</span>
+                        </p>
+                    </div>
+                    <div class="swiper-slide w-full mx-auto" id="second">
+                        <h3 class="text-[#302811] text-2xl font-bold">We started looking for a web developer last year
+                            and were fortunate to find Soliu. He's been easy to work with since the very beginning: organized,
+                            responsive, helpful and always on time.</h3>
+                        <p class="text-right text-[#302811]">
+                            <strong>Abdullah B.</strong><br>
+                            <span class="italic font-semibold">Cyber-security Officer</span>
+                        </p>
+                    </div>
+                    <div class="swiper-slide w-full mx-auto" id="third">
+                        <h3 class="text-[#302811] text-2xl font-bold">
+                            Soliu is my go-to for all things web. I've had the privilege of working with him. He is reliable,
+                            honest and great at what he does. Highly recommend!
+                        </h3>
+                        <p class="text-right text-[#302811]">
+                            <strong>Adedeji A.</strong><br>
+                            <span class="italic font-semibold">Cyber-security Officer</span>
+                        </p>
+                    </div>
                 </div>
-                <div class="sm:flex sm:flex-col sm:items-center">
-                    <p class="text-[#302811] font-semibold">JULY 30TH, 2023</p>
-                    <h3 class="my-5 text-[#302811] font-bold text-3xl sm:text-center">My TIIDELab Experience 2.0(Second Month)</h3>
-                    <p class="my-5 text-[#302811] font-semibold sm:text-center">Imagine getting stuck in a two hour traffic jam, yeah just a regular day in my city(Lagos) and you decided to checkout what that one button in your car...</p>
-                    <a href="https://medium.com/@sawlew/my-tiidelab-experience-2-0-second-month-85f01564df89"
-                        target="_blank"><button
-                            class="border-2 border-[#302811] w-52 h-20 font-bold text-[#302811] hover:bg-[#302811] hover:text-white active:bg-transparent active:text-[#302811]">READ
-                            MORE</button></a>
-                </div>
+                
             </div>
-
-            <div class="pb-12 sm:pb-0 flex justify-between items-center sm:flex-col gap-8">
-                <div class="sm:flex sm:flex-col sm:items-center">
-                    <p class="text-[#302811] font-semibold">OCTOBER 8TH, 2023</p>
-                    <h3 class="my-5 text-[#302811] font-bold text-3xl sm:text-center">My TIIDELab Experience 3.0(Third Month)</h3>
-                    <p class="my-5 text-[#302811] font-semibold sm:text-center">I can hardly believe that it’s only been three months since I embarked on this journey, but the impact has been so profound that...</p>
-                    <a href="https://medium.com/@sawlew/my-tiidelab-experience-3-0-third-month-e754da5e4919"
-                        target="_blank"><button
-                            class="border-2 border-[#302811] w-52 h-20 font-bold text-[#302811] hover:bg-[#302811] hover:text-white active:bg-transparent active:text-[#302811]">READ
-                            MORE</button></a>
+        </section>
+    
+        <!-- ============================================================BLOG========================================================== -->
+    
+        <section id="blog" class="sm:h-full sm:pb-10">
+            <div class="max-w-[80%] lg:max-w-[90%] pt-[4rem] mx-auto">
+                <div data-aos="fade-up" class="mb-[2rem] flex gap-2 justify-center items-center">
+                    <hr class="border-2 border-[#302811] w-1/4">
+                    <h2 class="text-[#302811] font-bold text-2xl text-center">BLOG</h2>
+                    <hr class="border-2 border-[#302811] w-1/4">
                 </div>
-                <div class="sm:flex sm:flex-col sm:items-center">
-                    <p class="text-[#302811] font-semibold">JULY 30TH, 2023</p>
-                    <h3 class="my-5 text-[#302811] font-bold text-3xl sm:text-center">My First Month Experience at
-                        TIIDELab 1.0</h3>
-                    <p class="my-5 text-[#302811] font-semibold sm:text-center">I’m so excited putting this out and I’ll
-                        try my best to make it as brief as possible even though there’s a lot to talk about...</p>
-                    <a href="https://medium.com/@sawlew/my-first-month-experience-at-tiidelab-1-0-9122026d939a"
-                        target="_blank"><button
-                            class="border-2 border-[#302811] w-52 h-20 font-bold text-[#302811] hover:bg-[#302811] hover:text-white active:bg-transparent active:text-[#302811]">READ
-                            MORE</button></a>
+                <div class="pb-12 flex justify-between items-center sm:flex-col gap-8">
+                    <div data-aos="zoom-in" class="sm:flex sm:flex-col sm:items-center">
+                        <p class="text-[#302811] font-semibold">JULY 30TH, 2023</p>
+                        <h3 class="my-5 text-[#302811] font-bold text-3xl sm:text-center">My First Month Experience at
+                            TIIDELab 1.0</h3>
+                        <p class="my-5 text-[#302811] font-semibold sm:text-center">I’m so excited putting this out and I’ll
+                            try my best to make it as brief as possible even though there’s a lot to talk about...</p>
+                        <a href="https://medium.com/@sawlew/my-first-month-experience-at-tiidelab-1-0-9122026d939a"
+                            target="_blank"><button
+                                class="border-2 border-[#302811] w-52 h-20 font-bold text-[#302811] hover:bg-[#302811] hover:text-white active:bg-transparent active:text-[#302811]">READ
+                                MORE</button></a>
+                    </div>
+                    <div data-aos="zoom-in" class="sm:flex sm:flex-col sm:items-center">
+                        <p class="text-[#302811] font-semibold">JULY 30TH, 2023</p>
+                        <h3 class="my-5 text-[#302811] font-bold text-3xl sm:text-center">My TIIDELab Experience 2.0(Second Month)</h3>
+                        <p class="my-5 text-[#302811] font-semibold sm:text-center">Imagine getting stuck in a two hour traffic jam, yeah just a regular day in my city(Lagos) and you decided to checkout what that one button in your car...</p>
+                        <a href="https://medium.com/@sawlew/my-tiidelab-experience-2-0-second-month-85f01564df89"
+                            target="_blank"><button
+                                class="border-2 border-[#302811] w-52 h-20 font-bold text-[#302811] hover:bg-[#302811] hover:text-white active:bg-transparent active:text-[#302811]">READ
+                                MORE</button></a>
+                    </div>
                 </div>
+    
+                <div class="pb-12 sm:pb-0 flex justify-between items-center sm:flex-col gap-8">
+                    <div data-aos="zoom-in" class="sm:flex sm:flex-col sm:items-center">
+                        <p class="text-[#302811] font-semibold">OCTOBER 8TH, 2023</p>
+                        <h3 class="my-5 text-[#302811] font-bold text-3xl sm:text-center">My TIIDELab Experience 3.0(Third Month)</h3>
+                        <p class="my-5 text-[#302811] font-semibold sm:text-center">I can hardly believe that it’s only been three months since I embarked on this journey, but the impact has been so profound that...</p>
+                        <a href="https://medium.com/@sawlew/my-tiidelab-experience-3-0-third-month-e754da5e4919"
+                            target="_blank"><button
+                                class="border-2 border-[#302811] w-52 h-20 font-bold text-[#302811] hover:bg-[#302811] hover:text-white active:bg-transparent active:text-[#302811]">READ
+                                MORE</button></a>
+                    </div>
+                    <div data-aos="zoom-in" class="sm:flex sm:flex-col sm:items-center">
+                        <p class="text-[#302811] font-semibold">JULY 30TH, 2023</p>
+                        <h3 class="my-5 text-[#302811] font-bold text-3xl sm:text-center">My First Month Experience at
+                            TIIDELab 1.0</h3>
+                        <p class="my-5 text-[#302811] font-semibold sm:text-center">I’m so excited putting this out and I’ll
+                            try my best to make it as brief as possible even though there’s a lot to talk about...</p>
+                        <a href="https://medium.com/@sawlew/my-first-month-experience-at-tiidelab-1-0-9122026d939a"
+                            target="_blank"><button
+                                class="border-2 border-[#302811] w-52 h-20 font-bold text-[#302811] hover:bg-[#302811] hover:text-white active:bg-transparent active:text-[#302811]">READ
+                                MORE</button></a>
+                    </div>
+                </div>
+    
             </div>
-
-        </div>
-    </section>
-
-    <!-- ============================================================CONTACT========================================================== -->
-
-    <section id="contact" class="pt-[4rem] max-w-[90%] lg:max-w-[90%] mx-auto">
-        <div class="mb-[2rem] flex gap-2 justify-center items-center">
-            <hr class="border-2 border-[#302811] w-1/4">
-            <h2 class="text-[#302811] font-bold text-2xl text-center">CONTACT ME</h2>
-            <hr class="border-2 border-[#302811] w-1/4">
-        </div>
-        <!-- <div class="flex flex-col justify-between"> -->
-            
-            <div class="flex items-start justify-evenly">
-                <form id="my-form" action="https://formspree.io/f/xqkrynej" method="POST">
-                    <table class="border-separate table-fixed border-spacing-2 h-1/2 lg:w-[70%] md:w-[100%] md:mx-auto pb-8">
-                        <!-- <tr>
-                            <td>
-                                <input type="text" name="" id="" placeholder="First Name"
-                                    class="h-10 w-full border bg-transparent border-[#302811] text-[#302811] px-[1rem] focus:outline-none focus:border-[#302811] placeholder-[#302811]">
-                            </td>
-                            <td>
-                                <input type="text" name="" id="" placeholder="Last Name"
-                                    class="h-10 w-full border bg-transparent border-[#302811] text-[#302811] px-[1rem] focus:outline-none focus:border-[#302811] placeholder-[#302811]">
-                            </td>
-                        </tr> -->
-                        <tr>
-                            <td>
-                                <input type="text" name="name" id="" placeholder="Name" required
-                                    class="h-10 w-full border bg-transparent border-[#302811] text-[#302811] px-[1rem] focus:outline-none focus:border-[#302811] placeholder-[#302811]">
-                            </td>
-                            <td>
-                                <input type="email" name="email" id="" placeholder="E-mail" required
-                                    class="h-10 w-full border bg-transparent border-[#302811] text-[#302811] px-[1rem] focus:outline-none focus:border-[#302811] placeholder-[#302811]">
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td colspan="2">
-                                <textarea placeholder="Message" name="message" id="" cols="30" rows="10"
-                                    class="w-full border bg-transparent border-[#302811] text-[#302811] px-[1rem] focus:outline-none focus:border-[#302811] placeholder-[#302811]"></textarea>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="2" id="my-form-status" class="text-center">
-                                
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="text-center" colspan="2">
-                                <button type="submit" id="my-form-button"
-                                    class="w-40 h-10 border border-[#302811] text-[#302811] font-semibold hover:bg-[#302811] hover:text-white active:bg-transparent active:text-[#302811]">Send</button>
-                            </td>
-                        </tr>
-                    </table>
-                </form>
-                <div class="mt-2 md:hidden">
-                    <ul class="flex flex-col justify-between gap-3">
-                        <a href="https://github.com/sawlew" target="_blank"><ion-icon name="logo-github"
-                                class="text-[#302811] text-4xl hover:scale-[1.5] duration-200 ease-linear"></ion-icon></a>
-                        <a href="https://twitter.com/sawlew" target="_blank"><ion-icon name="logo-twitter"
-                                class="text-[#302811] text-4xl hover:scale-[1.5] duration-200 ease-linear"></ion-icon></a>
-                        <a href="https://www.linkedin.com/in/sawlew/" target="_blank"><ion-icon name="logo-linkedin"
-                                class="text-[#302811] text-4xl hover:scale-[1.5] duration-200 ease-linear"></ion-icon></a>
-                        <a href="mailto: sawlew@gmail.com" target="_blank"><ion-icon name="mail-outline"
-                                class="text-[#302811] text-4xl hover:scale-[1.5] duration-200 ease-linear"></ion-icon></a>
-                        <a href="https://api.whatsapp.com/send?phone=2348024182946" target="_blank"><ion-icon
-                                name="logo-whatsapp"
-                                class="text-[#302811] text-4xl hover:scale-[1.5] duration-200 ease-linear"></ion-icon></a>
-                        <a href="tel:+2348024182946"><ion-icon name="call-outline"
-                                class="text-[#302811] text-4xl hover:scale-[1.5] duration-200 ease-linear"></ion-icon></a>
-                    </ul>
-                </div>
+        </section>
+    
+        <!-- ============================================================CONTACT========================================================== -->
+    
+        <section id="contact" class="pt-[4rem] max-w-[90%] lg:max-w-[90%] mx-auto">
+            <div data-aos="fade-up" class="mb-[2rem] flex gap-2 justify-center items-center">
+                <hr class="border-2 border-[#302811] w-1/4">
+                <h2 class="text-[#302811] font-bold text-2xl text-center">CONTACT ME</h2>
+                <hr class="border-2 border-[#302811] w-1/4">
             </div>
-            
-  
-        <!-- </div> -->
-
-    </section>
-    <footer>
-        <div class="h-20 flex items-center justify-center lg:flex-col lg:h-[160px] lg:justify-evenly bg-transparent backdrop-blur-lg">
-            <ul id="footer-social" class="lg:flex w-[90%] mx-auto justify-evenly">
-                <a href="https://github.com/sawlew" target="_blank"><ion-icon name="logo-github"
-                        class="text-[#302811] text-3xl hover:scale-[1.5] duration-200 ease-linear"></ion-icon></a>
-                <a href="https://twitter.com/sawlew" target="_blank"><ion-icon name="logo-twitter"
-                        class="text-[#302811] text-3xl hover:scale-[1.5] duration-200 ease-linear"></ion-icon></a>
-                <a href="https://www.linkedin.com/in/sawlew/" target="_blank"><ion-icon name="logo-linkedin"
-                        class="text-[#302811] text-3xl hover:scale-[1.5] duration-200 ease-linear"></ion-icon></a>
-                <a href="mailto: sawlew@gmail.com" target="_blank"><ion-icon name="mail-outline"
-                        class="text-[#302811] text-3xl hover:scale-[1.5] duration-200 ease-linear"></ion-icon></a>
-                <a href="https://api.whatsapp.com/send?phone=2348024182946" target="_blank"><ion-icon
-                        name="logo-whatsapp" class="text-[#302811] text-3xl hover:scale-[1.5] duration-200 ease-linear"></ion-icon></a>
-                <a href="tel:+2348024182946"><ion-icon name="call-outline"
-                        class="text-[#302811] text-3xl hover:scale-[1.5] duration-200 ease-linear"></ion-icon></a>
-            </ul>
-            <p class="text-[#302811]"><span class="font-sans">&COPY;</span>2023-<span id="currentYear"></span> - Soliu Adeosun</p>
-        </div>
-    </footer>
+            <!-- <div class="flex flex-col justify-between"> -->
+                
+                <div class="flex items-start justify-evenly">
+                    <form data-aos="fade-right" id="my-form" action="https://formspree.io/f/xqkrynej" method="POST">
+                        <table class="border-separate table-fixed border-spacing-2 h-1/2 lg:w-[70%] md:w-[100%] md:mx-auto pb-8">
+                            <!-- <tr>
+                                <td>
+                                    <input type="text" name="" id="" placeholder="First Name"
+                                        class="h-10 w-full border bg-transparent border-[#302811] text-[#302811] px-[1rem] focus:outline-none focus:border-[#302811] placeholder-[#302811]">
+                                </td>
+                                <td>
+                                    <input type="text" name="" id="" placeholder="Last Name"
+                                        class="h-10 w-full border bg-transparent border-[#302811] text-[#302811] px-[1rem] focus:outline-none focus:border-[#302811] placeholder-[#302811]">
+                                </td>
+                            </tr> -->
+                            <tr>
+                                <td>
+                                    <input type="text" name="name" id="" placeholder="Name" required
+                                        class="h-10 w-full border bg-transparent border-[#302811] text-[#302811] px-[1rem] focus:outline-none focus:border-[#302811] placeholder-[#302811]">
+                                </td>
+                                <td>
+                                    <input type="email" name="email" id="" placeholder="E-mail" required
+                                        class="h-10 w-full border bg-transparent border-[#302811] text-[#302811] px-[1rem] focus:outline-none focus:border-[#302811] placeholder-[#302811]">
+                                </td>
+                            </tr>
+    
+                            <tr>
+                                <td colspan="2">
+                                    <textarea placeholder="Message" name="message" id="" cols="30" rows="10"
+                                        class="w-full border bg-transparent border-[#302811] text-[#302811] px-[1rem] focus:outline-none focus:border-[#302811] placeholder-[#302811]"></textarea>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" id="my-form-status" class="text-center">
+                                    
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center" colspan="2">
+                                    <button type="submit" id="my-form-button"
+                                        class="w-40 h-10 border border-[#302811] text-[#302811] font-semibold hover:bg-[#302811] hover:text-white active:bg-transparent active:text-[#302811]">Send</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
+                    <div class="mt-2 md:hidden">
+                        <div class="flex flex-col justify-between gap-3">
+                            <a data-aos="fade-left" href="https://github.com/sawlew" target="_blank"><ion-icon name="logo-github"
+                                    class="text-[#302811] text-4xl hover:scale-[1.5] duration-200 ease-linear"></ion-icon></a>
+                            <a data-aos="fade-left" href="https://twitter.com/sawlew" target="_blank"><ion-icon name="logo-twitter"
+                                    class="text-[#302811] text-4xl hover:scale-[1.5] duration-200 ease-linear"></ion-icon></a>
+                            <a data-aos="fade-left" href="https://www.linkedin.com/in/sawlew/" target="_blank"><ion-icon name="logo-linkedin"
+                                    class="text-[#302811] text-4xl hover:scale-[1.5] duration-200 ease-linear"></ion-icon></a>
+                            <a data-aos="fade-left" href="mailto: sawlew@gmail.com" target="_blank"><ion-icon name="mail-outline"
+                                    class="text-[#302811] text-4xl hover:scale-[1.5] duration-200 ease-linear"></ion-icon></a>
+                            <a data-aos="fade-left" href="https://api.whatsapp.com/send?phone=2348024182946" target="_blank"><ion-icon
+                                    name="logo-whatsapp"
+                                    class="text-[#302811] text-4xl hover:scale-[1.5] duration-200 ease-linear"></ion-icon></a>
+                            <a data-aos="fade-left" href="tel:+2348024182946"><ion-icon name="call-outline"
+                                    class="text-[#302811] text-4xl hover:scale-[1.5] duration-200 ease-linear"></ion-icon></a>
+                        </div>
+                    </div>
+                </div>
+                
+      
+            <!-- </div> -->
+    
+        </section>
+        <footer>
+            <div class="h-20 flex items-center justify-center lg:flex-col lg:h-[160px] lg:justify-evenly bg-transparent backdrop-blur-lg">
+                <ul id="footer-social" class="lg:flex w-[90%] mx-auto justify-evenly">
+                    <a href="https://github.com/sawlew" target="_blank"><ion-icon name="logo-github"
+                            class="text-[#302811] text-3xl hover:scale-[1.5] duration-200 ease-linear"></ion-icon></a>
+                    <a href="https://twitter.com/sawlew" target="_blank"><ion-icon name="logo-twitter"
+                            class="text-[#302811] text-3xl hover:scale-[1.5] duration-200 ease-linear"></ion-icon></a>
+                    <a href="https://www.linkedin.com/in/sawlew/" target="_blank"><ion-icon name="logo-linkedin"
+                            class="text-[#302811] text-3xl hover:scale-[1.5] duration-200 ease-linear"></ion-icon></a>
+                    <a href="mailto: sawlew@gmail.com" target="_blank"><ion-icon name="mail-outline"
+                            class="text-[#302811] text-3xl hover:scale-[1.5] duration-200 ease-linear"></ion-icon></a>
+                    <a href="https://api.whatsapp.com/send?phone=2348024182946" target="_blank"><ion-icon
+                            name="logo-whatsapp" class="text-[#302811] text-3xl hover:scale-[1.5] duration-200 ease-linear"></ion-icon></a>
+                    <a href="tel:+2348024182946"><ion-icon name="call-outline"
+                            class="text-[#302811] text-3xl hover:scale-[1.5] duration-200 ease-linear"></ion-icon></a>
+                </ul>
+                <p class="text-[#302811]"><span class="font-sans">&COPY;</span>2023-<span id="currentYear"></span> - Soliu Adeosun</p>
+            </div>
+        </footer>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <script>
-        // Mailer
-        var form = document.getElementById("my-form");
-        
-        async function handleSubmit(event) {
-            event.preventDefault();
-            var status = document.getElementById("my-form-status");
-            var data = new FormData(event.target);
-            fetch(event.target.action, {
-                method: form.method,
-                body: data,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            }).then(response => {
-                if (response.ok) {
-                status.innerHTML = `<p class="text-green-500">Thanks for contacting me</p>`;
-                form.reset()
-                } else {
-                response.json().then(data => {
-                    if (Object.hasOwn(data, 'errors')) {
-                    status.innerHTML = data["errors"].map(error => error["message"]).join(", ")
-                    } else {
-                    status.innerHTML = `<p class="text-red-500">Oops! There was a problem submitting your form</p>`;
-                    }
-                })
-            }
-        }).catch(error => {
-            status.innerHTML = `<p class="text-red-500">Oops! There was a problem submitting your form</p>`;
-        });
-        }
-        form.addEventListener("submit", handleSubmit)
-
-
-        // Year updater
-        function yearUpdater() {
-            let currentYear = document.getElementById("currentYear");
-            let year = new Date().getFullYear();
-
-            currentYear.innerHTML = year;
-        }
-        yearUpdater();
-    </script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="src/swiper.js"></script>
+    <script src="src/aos.js"></script>
+    
 </body>
 
 </html>
