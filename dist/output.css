@@ -534,10 +534,6 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
-.container {
-  width: 100%;
-}
-
 .invisible {
   visibility: hidden;
 }
@@ -815,6 +811,10 @@ video {
   gap: 2rem;
 }
 
+.overflow-x-hidden {
+  overflow-x: hidden;
+}
+
 .scroll-smooth {
   scroll-behavior: smooth;
 }
@@ -849,8 +849,8 @@ video {
   background-color: transparent;
 }
 
-.bg-\[url\(\'\/src\/wall\.png\'\)\] {
-  background-image: url('/src/wall.png');
+.bg-\[url\(\'\/src\/images\/wall\.png\'\)\] {
+  background-image: url('/src/images/wall.png');
 }
 
 .bg-cover {
@@ -871,10 +871,6 @@ video {
 
 .p-4 {
   padding: 1rem;
-}
-
-.p-20 {
-  padding: 5rem;
 }
 
 .px-\[1rem\] {
@@ -945,6 +941,11 @@ video {
 
 .text-xl {
   font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+.text-lg {
+  font-size: 1.125rem;
   line-height: 1.75rem;
 }
 
@@ -1137,8 +1138,8 @@ video {
     background-color: rgb(255 255 255 / var(--tw-bg-opacity));
   }
 
-  .md\:bg-\[url\(\'\/src\/doublemb\.png\'\)\] {
-    background-image: url('/src/doublemb.png');
+  .md\:bg-\[url\(\'\/src\/images\/doublemb\.png\'\)\] {
+    background-image: url('/src/images/doublemb.png');
   }
 
   .md\:pt-10 {
@@ -1191,8 +1192,8 @@ video {
     align-items: center;
   }
 
-  .sm\:bg-\[url\(\'\/src\/mb\.png\'\)\] {
-    background-image: url('/src/mb.png');
+  .sm\:bg-\[url\(\'\/src\/images\/mb\.png\'\)\] {
+    background-image: url('/src/images/mb.png');
   }
 
   .sm\:pb-0 {

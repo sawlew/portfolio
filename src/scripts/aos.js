@@ -1,5 +1,5 @@
 // $(function() {
     AOS.init({
-        duration: 800,
+        duration: 1000,
     });
 //   });

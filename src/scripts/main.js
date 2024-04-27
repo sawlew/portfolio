@@ -4,10 +4,11 @@ function startUp(){
   const main = document.getElementById("mainScreen");
 
     setTimeout(() =>{
+        yearUpdater();
         intro.classList.add("hidden");
         main.classList.remove("hidden");
         AOS.init({
-          duration: 800,
+          duration: 1000,
         });
     }, 5000);
 }
@@ -31,12 +32,15 @@ $("#navbar a").on("click", function (event) {
 
 // function resetHeight(){
 //   // reset the body height to that of the inner browser
-//   document.body.style.height = window.innerHeight + "px";
+//   const introScreen = document.getElementById("loaderScreen");
+//   introScreen.style.height = window.innerHeight + "px";
 // }
-// reset the height whenever the window's resized
+// //reset the height whenever the window's resized
 // window.addEventListener("resize", resetHeight);
-// called to initially set the height.
+// //called to initially set the height.
 // resetHeight();
+// Wrap your code in a DOMContentLoaded event listener to ensure it runs after the DOM is fully loaded.
+
 
 
 // Drop-down menu for mobile design
@@ -58,39 +62,6 @@ function closeMenu(){
   close.classList.add("hidden");
   menu.classList.remove("hidden");
 }
-
-//Testtimonial function
-
-// function setDotAndDisplay(dotNumber) {
-//   let firstDot = document.getElementById("pointer1");
-//   let secondDot = document.getElementById("pointer2");
-//   let thirdDot = document.getElementById("pointer3");
-
-//   let first = document.getElementById("first");
-//   let second = document.getElementById("second");
-//   let third = document.getElementById("third");
-
-//   // Reset all dots and displays
-//   firstDot.style.background = "none";
-//   secondDot.style.background = "none";
-//   thirdDot.style.background = "none";
-
-//   first.style.display = "none";
-//   second.style.display = "none";
-//   third.style.display = "none";
-
-//   // Set the selected dot and display
-//   if (dotNumber === 1) {
-//     firstDot.style.background = "#302811";
-//     first.style.display = "block";
-//   } else if (dotNumber === 2) {
-//     secondDot.style.background = "#302811";
-//     second.style.display = "block";
-//   } else if (dotNumber === 3) {
-//     thirdDot.style.background = "#302811";
-//     third.style.display = "block";
-//   }
-// }
 
 
 // Unavailable GitHub repo
@@ -133,7 +104,7 @@ async function handleSubmit(event) {
     status.innerHTML = `<p class="text-red-500">Oops! There was a problem submitting your form</p>`;
 });
 }
-form.addEventListener("submit", handleSubmit)
+// form.addEventListener("submit", handleSubmit)
 
 
 // Year updater
@@ -143,7 +114,7 @@ function yearUpdater() {
 
     currentYear.innerHTML = year;
 }
-yearUpdater();
+
 
 
 
