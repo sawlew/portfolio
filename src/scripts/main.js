@@ -65,13 +65,13 @@ function closeMenu(){
 
 
 // Unavailable GitHub repo
-function noGitHub(){
-  let errorborad = document.querySelector(".no-github");
-  errorborad.classList.remove("invisible");
-  setTimeout(() =>{
-    errorborad.classList.add("invisible");
-  }, 3000);
-  
+function noGitHub(buttonElement) {
+    const card = buttonElement.closest('.flex.flex-col.justify-between.items-center');
+    const errorBoard = card.querySelector('.no-github');
+    errorBoard.classList.remove('invisible');
+    setTimeout(() => {
+        errorBoard.classList.add('invisible');
+    }, 3000);
 }
 
 // Mailer
